@@ -16,18 +16,9 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <form action="action_page.php" style="border:1px solid #ccc">
     <div class="container">
-        <h1>Sign Up</h1>
+        <h1>Create Profile</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-
-        <label for="username"><b>Username</b></label>
-        <input type="text" id="username" placeholder="Enter Username" name="username" required>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" id="email" placeholder="Enter Email" name="email" required>
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
 
         <label for="money"><b>Money</b></label>
         <input type="number" id="money" placeholder="Enter Amount" name="money" required>
@@ -38,19 +29,19 @@
             <label for="Healer">Healer</label>
         </div>
         <div>
-            <input type="radio" id="Assassin" name="class" value="Assassin" checked>
+            <input type="radio" id="Assassin" name="class" value="Assassin" >
             <label for="Assassin"></label>
         </div>
         <div>
-            <input type="radio" id="Fighter" name="class" value="Fighter" checked>
+            <input type="radio" id="Fighter" name="class" value="Fighter" >
             <label for="Fighter">Fighter</label>
         </div>
         <div>
-            <input type="radio" id="Hunter" name="class" value="Hunter" checked>
+            <input type="radio" id="Hunter" name="class" value="Hunter" >
             <label for="Hunter">Hunter</label>
         </div>
         <div>
-            <input type="radio" id="Mage" name="class" value="Mage" checked>
+            <input type="radio" id="Mage" name="class" value="Mage" >
             <label for="Mage">Mage</label>
         </div>
 
@@ -60,7 +51,7 @@
         <label for="phone"><b>Phone</b></label>
         <input type="tel" id="phone" placeholder="Enter Phone Number" name="phone"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
         <small>Format: 123-456-7890</small>
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="registerbtn">Create Profile</button>
     </div>
     </div>
 </form>
