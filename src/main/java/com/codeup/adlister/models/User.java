@@ -7,20 +7,21 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private double money;
+    private String role;
+    private String img;
+    private long phone;
 
     public User() {}
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, double money, String character, String img, long phone) {
         this.username = username;
         this.email = email;
         setPassword(password);
-    }
-
-    public User(long id, String username, String email, String password) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
+        this.money = money;
+        this.role = role;
+        this.img = img;
+        this.phone = phone;
     }
 
     public long getId() {
@@ -54,4 +55,20 @@ public class User {
     public void setPassword(String password) {
         this.password = Password.hash(password);
     }
+
+    public double getMoney() { return money; }
+
+    public void setMoney(double money) { this.money = money; }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
+
+    public String getImg() { return img; }
+
+    public void setImg(String img) { this.img = img; }
+
+    public long getPhone() { return phone; }
+
+    public void setPhone(long phone) { this.phone = phone; }
 }
