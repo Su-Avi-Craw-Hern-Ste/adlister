@@ -9,28 +9,26 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Sign up" />
+        <jsp:param name="title" value="Create profile" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<form action="action_page.php" style="border:1px solid #ccc">
+<form action="/profile/create" method="post" style="border:1px solid #ccc">
     <div class="container">
         <h1>Create Profile</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="money"><b>Money</b></label>
-        <input type="number" id="money" placeholder="Enter Amount" name="money" required>
-
-        <p>Select a Class</p>
+        <p>Select a Character</p>
         <div>
             <input type="radio" id="Healer" name="role" value="Healer" checked>
             <label for="Healer">Healer</label>
         </div>
         <div>
             <input type="radio" id="Assassin" name="role" value="Assassin" >
-            <label for="Assassin"></label>
+            <label for="Assassin">Assassin</label>
+
         </div>
         <div>
             <input type="radio" id="Fighter" name="role" value="Fighter" >
@@ -45,7 +43,7 @@
             <label for="Mage">Mage</label>
         </div>
 
-        <label for="img">Select image:</label>
+        <label for="img">Upload image:</label>
         <input type="file" id="img" name="img" accept="image/*">
 
         <label for="phone"><b>Phone</b></label>

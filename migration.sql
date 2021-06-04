@@ -13,8 +13,8 @@ CREATE TABLE users (
     username VARCHAR(240) NOT NULL UNIQUE,
     email VARCHAR(240) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    money INT UNSIGNED,
-    class VARCHAR(30),
+    money INT UNSIGNED DEFAULT 100,
+    role VARCHAR(30),
     phone_number VARCHAR(20),
     image VARCHAR(200),
     PRIMARY KEY (id)
