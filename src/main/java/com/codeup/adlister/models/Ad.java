@@ -5,24 +5,24 @@ public class Ad {               //item
     private long userId;        //userId REFERENCES users(id)
     private long imageId;       //id for image REFERENCES images(id)
     private String title;       //item name
-    private int value;          //item's assigned value by user
+    private int price;          //item's assigned price by user
     private String rarity;      //item's rarity/condition
     private String description; //description
 
-    public Ad(long id, long userId, long imageId, String title, int value, String rarity, String description) {
+    public Ad(long id, long userId, long imageId, String title, int price, String rarity, String description) {
         this.id = id;
         this.userId = userId;
         this.imageId = imageId;
         this.title = title;
-        this.value = value;
+        this.price = price;
         this.rarity = rarity;
         this.description = description;
     }
 
-    public Ad(long userId, String title, int value, String rarity, String description) {
+    public Ad(long userId, String title, int price, String rarity, String description) {
         this.userId = userId;
         this.title = title;
-        this.value = value;
+        this.price = price;
         this.rarity = rarity;
         this.description = description;
     }
@@ -55,9 +55,9 @@ public class Ad {               //item
         this.title = title;
     }
 
-    public int getValue() { return value; }
+    public int getPrice() { return price; }
 
-    public void setValue(int value) { this.value = value; }
+    public void setPrice(int price) { this.price = price; }
 
     public String getRarity() { return rarity; }
 
