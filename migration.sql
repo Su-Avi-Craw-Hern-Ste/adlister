@@ -1,18 +1,19 @@
 USE adlister_db;
 
+DROP TABLE IF EXISTS ad_image;
+DROP TABLE IF EXISTS ad_category;
+DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS images;
-DROP TABLE IF EXISTS ads;
-DROP TABLE IF EXISTS ad_image;
-DROP TABLE IF EXISTS ad_category;
+
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL UNIQUE,
     email VARCHAR(240) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    money INT USIGNED,
+    money INT UNSIGNED,
     class VARCHAR(30),
     phone_number VARCHAR(20),
     image VARCHAR(200),
@@ -21,12 +22,14 @@ CREATE TABLE users (
 
 CREATE TABLE categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    category VARCHAR(50)
+    category VARCHAR(50),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE images (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    image VARCHAR(200)
+    image VARCHAR(200),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE ads (
