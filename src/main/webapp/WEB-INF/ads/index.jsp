@@ -14,7 +14,7 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2>${ad.title}   ${ad.value}</h2>
+            <h2>${ad.title}   ${ad.cost}</h2>
             <img src="" alt="item_image">
             <h3>${ad.rarity}</h3>
             <p>${ad.description}</p>
