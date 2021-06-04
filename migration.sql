@@ -62,4 +62,3 @@ CREATE TABLE ad_image (
      FOREIGN KEY (image_id) REFERENCES images(id)
          ON DELETE CASCADE
 );
-

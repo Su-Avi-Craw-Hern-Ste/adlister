@@ -28,6 +28,7 @@
         <div>
             <input type="radio" id="Assassin" name="role" value="Assassin" >
             <label for="Assassin">Assassin</label>
+
         </div>
         <div>
             <input type="radio" id="Fighter" name="role" value="Fighter" >
