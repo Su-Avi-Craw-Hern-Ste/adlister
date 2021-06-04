@@ -32,11 +32,13 @@ upload profile img
 username
 email  
 change password button/option
-phone number // if gorget password, user can choose to receive a passcode by message to login
-interests --> checkbox
+phone number // if forget password, user can choose to receive a passcode by message to login
+class --> checkbox
 
 ad form 
 title
+value
+rarity
 description
-category --> checkbox
-images?
+categories --> checkbox
+images
