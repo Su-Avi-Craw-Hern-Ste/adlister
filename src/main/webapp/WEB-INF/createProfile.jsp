@@ -25,23 +25,23 @@
 
         <p>Select a Class</p>
         <div>
-            <input type="radio" id="Healer" name="class" value="Healer" checked>
+            <input type="radio" id="Healer" name="role" value="Healer" checked>
             <label for="Healer">Healer</label>
         </div>
         <div>
-            <input type="radio" id="Assassin" name="class" value="Assassin" >
+            <input type="radio" id="Assassin" name="role" value="Assassin" >
             <label for="Assassin"></label>
         </div>
         <div>
-            <input type="radio" id="Fighter" name="class" value="Fighter" >
+            <input type="radio" id="Fighter" name="role" value="Fighter" >
             <label for="Fighter">Fighter</label>
         </div>
         <div>
-            <input type="radio" id="Hunter" name="class" value="Hunter" >
+            <input type="radio" id="Hunter" name="role" value="Hunter" >
             <label for="Hunter">Hunter</label>
         </div>
         <div>
-            <input type="radio" id="Mage" name="class" value="Mage" >
+            <input type="radio" id="Mage" name="role" value="Mage" >
             <label for="Mage">Mage</label>
         </div>
 
