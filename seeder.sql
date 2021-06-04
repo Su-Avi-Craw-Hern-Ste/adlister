@@ -1,10 +1,11 @@
+USE adlister_db;
 
-
-INSERT INTO users (username, email, password, money, class, phone_number, image)
-VALUES 	('brett', 'brettcrawford123@gmail.com', 'encrypted_password', 50000, 'Hunter', 2109876543, url:'localblahblah'),
-          ('shanshan' 'shanshan123@gmail.com', 'encrypted_password', 50000, 'Healer', 2108765432, url:'localblahblah2'),
-          ('alex', 'alex123@gmail.com', 'encrypted_password', 50000, 'Mage', 2107654321, url:'localblahblah3'),
-          ('manni', 'manni123@gmail.com', 'encrypted_password', 50000, 'Assassin', 2106543210, url:'localblahblah4');
+INSERT INTO users (username, email, password, money, role, phone_number, image)
+VALUES
+       ('brett', 'brettcrawford123@gmail.com', 'encrypted_password', 50000, 'Hunter', '210-987-6543', 'localblahblah'),
+       ('shanshan', 'shanshan123@gmail.com', 'encrypted_password', 50000, 'Healer', '210-876-5432', 'localblahblah2'),
+       ('alex', 'alex123@gmail.com', 'encrypted_password', 50000, 'Mage', '210-765-4321', 'localblahblah3'),
+       ('manni', 'manni123@gmail.com', 'encrypted_password', 50000, 'Assassin', '210-654-3210', 'localblahblah4');
 
 INSERT INTO categories (category)
 VALUES	('items'),
@@ -19,10 +20,11 @@ VALUES	('dummy_url'),
           ('dummy_url4');
 
 INSERT INTO ads (user_id, title, price, rarity, description)
-VALUES	(1, 'Legendary Cup for Sale', 3500, 'Legendary', 'This legendary cup is legendary. It can hold anything'),
-          (2, 'Selling Common Sword', 500, 'Common', 'Found this sword on the side of the road. Just looking for some money'),
-          (3, 'Somebody come get this dragon!', 23500, 'Unique', 'Adolescent blue dragon. Rebellious. Experienced dragon owners only'),
-          (4, 'White Carbon Soot', 1500, 'Uncommon', 'Smithing material. Excellent for crafting armor pieces.');
+VALUES
+       (1, 'Legendary Cup for Sale', 3500, 'Legendary', 'This legendary cup is legendary. It can hold anything'),
+       (2, 'Selling Common Sword', 500, 'Common', 'Found this sword on the side of the road. Just looking for some money'),
+       (3, 'Somebody come get this dragon!', 23500, 'Unique', 'Adolescent blue dragon. Rebellious. Experienced dragon owners only'),
+       (4, 'White Carbon Soot', 1500, 'Uncommon', 'Smithing material. Excellent for crafting armor pieces.');
 
 INSERT INTO ad_image (ad_id, image_id)
 VALUES 	(1, 1),
