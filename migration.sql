@@ -37,7 +37,7 @@ CREATE TABLE ads (
     user_id INT UNSIGNED NOT NULL,
     image_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
-    value INT UNSIGNED NOT NULL,
+    price INT UNSIGNED NOT NULL,
     rarity VARCHAR(50) NOT NULL,
     description TEXT NOT NULL,
     PRIMARY KEY (id),

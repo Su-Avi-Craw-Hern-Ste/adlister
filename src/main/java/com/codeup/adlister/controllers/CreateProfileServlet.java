@@ -14,7 +14,9 @@ public class CreateProfileServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String character = request.getParameter("character");
+        String role = request.getParameter("role");
+        String phoneNumber = request.getParameter("phone");
+
     }
 
 }

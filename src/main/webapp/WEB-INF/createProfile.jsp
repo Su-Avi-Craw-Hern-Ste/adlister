@@ -49,8 +49,7 @@
         <label for="phone"><b>Phone</b></label>
         <input type="tel" id="phone" placeholder="Enter Phone Number" name="phone"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
         <small>Format: 123-456-7890</small>
-        <button type="submit" class="registerbtn">Create Profile</button>
-    </div>
+        <button type="submit" class="btn">Create Profile</button>
     </div>
 </form>
 
