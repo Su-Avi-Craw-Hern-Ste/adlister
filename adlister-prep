@@ -1,0 +1,42 @@
+As a visitor --> create my own account or navigate /ads page to look at all the ads and maybe click the ads to see more info.
+
+As a visitor to create account --> I go to the home page and I can click sign up button on navbar, and then I'll go to /register page. After I complete the register form, I'll go to welcome page and the page tells me that I'll get an verification email and click the link inside the email to verify. After I verify my email, I go to /login page. After I login and I want to be directed to /editprofile page. After I completed the profile form, I go to /profile page to review my profile, and I have option to edit profile.
+
+
+As a visitor to navigate /ads page --> click adlister/logo on navbar, I go to /ads page to see all the ads. I can search by category or type in words.
+
+
+As a user --> click login button from home page and will be directed to /login. After I login, I'll go back to home page and get a message saying welcome back on the top of screen/ popup window. 
+
+As a user --> I can login from any pages that visitors can go to and after I login I'll be redirected back to where I've left.
+
+As a user --> I want to have forget password option on login form and I click that I'll go to /reset page to put in my email and get an email with reset password link.   ******   I also want to have option to receive a one time passcode to login.
+
+As a user --> when I choose to change my password, I'll be directed to /reset-password page where I need to enter my old password and new password and new password confirmation.
+
+As a user --> When I click create-ad button, I'll go to /create page where I need to enter title and description, also need to pick categories.
+
+
+
+
+
+
+register form 
+username
+email
+password
+password confirmation
+
+profile form
+upload profile img
+username
+email  
+change password button/option
+phone number // if gorget password, user can choose to receive a passcode by message to login
+interests --> checkbox
+
+ad form 
+title
+description
+category --> checkbox
+images?
