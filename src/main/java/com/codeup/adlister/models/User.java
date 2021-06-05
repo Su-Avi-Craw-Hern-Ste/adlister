@@ -9,8 +9,8 @@ public class User {
     private String password;
     private long money;
     private String role;
-    private String img;
-    private String phone;
+    private String image;
+    private String phoneNumber;
 
     public User() {}
 
@@ -26,15 +26,15 @@ public class User {
         setPassword(password);
     }
 
-    public User (long id, String username, String email, String password, long money, String role, String img, String phone) {
+    public User (long id, String username, String email, String password, long money, String role, String image, String phoneNumber) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.money = money;
         this.role = role;
-        this.img = img;
-        this.phone = phone;
+        this.image = image;
+        this.phoneNumber = phoneNumber;
     }
 
     public long getId() {
@@ -77,11 +77,11 @@ public class User {
 
     public void setRole(String role) { this.role = role; }
 
-    public String getImg() { return img; }
+    public String getImage() { return image; }
 
-    public void setImg(String img) { this.img = img; }
+    public void setImage(String image) { this.image = image; }
 
-    public String getPhone() { return phone; }
+    public String getPhoneNumber() { return phoneNumber; }
 
-    public void setPhone(String phone) { this.phone = phone; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 }
