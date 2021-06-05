@@ -52,15 +52,37 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
             rs.getLong("id"),
             rs.getString("username"),
             rs.getString("email"),
-            rs.getString("password")
+            rs.getString("password"),
+            rs.getLong("money"),
+            rs.getString("role"),
+            rs.getString("image"),
+            rs.getString("phone_number")
         );
+    }
+
+
+    @Override
+    public Long addInfo(User user) {
+        String query = "INSERT INTO users(image, role, phone_number) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, user.getImage());
+            stmt.setString(2, user.getRole());
+            stmt.setString(3, user.getPhoneNumber());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user information", e);
+        }
     }
 
 }
