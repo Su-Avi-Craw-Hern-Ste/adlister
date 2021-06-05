@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS images;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username VARCHAR(240) NOT NULL UNIQUE,
+    username VARCHAR(20) NOT NULL UNIQUE,
     email VARCHAR(240) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     money INT UNSIGNED DEFAULT 100,
@@ -48,16 +48,16 @@ CREATE TABLE ad_category (
     ad_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (ad_id) REFERENCES ads(id)
-        ON DELETE CASCADE,
+     ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id)
-        ON DELETE CASCADE
+     ON DELETE CASCADE
 );
 
 CREATE TABLE ad_image (
-     ad_id INT UNSIGNED NOT NULL,
-     image_id INT UNSIGNED NOT NULL,
-     FOREIGN KEY (ad_id) REFERENCES ads(id)
-         ON DELETE CASCADE,
-     FOREIGN KEY (image_id) REFERENCES images(id)
-         ON DELETE CASCADE
+    ad_id INT UNSIGNED NOT NULL,
+    image_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (ad_id) REFERENCES ads(id)
+      ON DELETE CASCADE,
+    FOREIGN KEY (image_id) REFERENCES images(id)
+      ON DELETE CASCADE
 );
