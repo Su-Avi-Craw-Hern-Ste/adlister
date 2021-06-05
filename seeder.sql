@@ -8,16 +8,16 @@ VALUES
        ('manni', 'manni123@gmail.com', 'encrypted_password', 50000, 'Assassin', '210-654-3210', 'localblahblah4');
 
 INSERT INTO categories (category)
-VALUES	('items'),
-          ('materials'),
-          ('animals'),
-          ('weapons');
+VALUES ('items'),
+       ('materials'),
+       ('animals'),
+       ('weapons');
 
 INSERT INTO images (image)
-VALUES	('dummy_url'),
-          ('dummy_url2'),
-          ('dummy_url3'),
-          ('dummy_url4');
+VALUES ('dummy_url'),
+       ('dummy_url2'),
+       ('dummy_url3'),
+       ('dummy_url4');
 
 INSERT INTO ads (user_id, title, price, rarity, description)
 VALUES
@@ -27,13 +27,13 @@ VALUES
        (4, 'White Carbon Soot', 1500, 'Uncommon', 'Smithing material. Excellent for crafting armor pieces.');
 
 INSERT INTO ad_image (ad_id, image_id)
-VALUES 	(1, 1),
-          (2, 2),
-          (3, 3),
-          (4, 4);
+VALUES (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 4);
 
 INSERT INTO ad_category (ad_id, category_id)
-VALUES	(1, 1),
-          (2, 2),
-          (3, 3),
-          (4, 4);
+VALUES (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 4);
