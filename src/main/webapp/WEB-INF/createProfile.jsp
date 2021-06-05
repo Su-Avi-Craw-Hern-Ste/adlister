@@ -22,7 +22,7 @@
 
         <p>Select a Character</p>
         <div>
-            <input type="radio" id="Healer" name="role" value="Healer" checked>
+            <input type="radio" id="Healer" name="role" value="Healer">
             <label for="Healer">Healer</label>
         </div>
         <div>
