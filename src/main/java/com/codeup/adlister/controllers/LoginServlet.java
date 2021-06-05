@@ -26,8 +26,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        System.out.println(user.getUsername());
-
+        // if user hasn't logged in, redirect to /login page
         if (user == null) {
             response.sendRedirect("/login");
             return;
@@ -41,10 +40,12 @@ public class LoginServlet extends HttpServlet {
 
             // check if the user has submitted all info to db
             boolean isProfileCreated = user.getPhoneNumber() != null && user.getRole() != null;
-            if (isProfileCreated) {
+
+            if (isProfileCreated) { // phoneNumber and role are not null in db
                 response.sendRedirect("/profile");
+            } else {
+                response.sendRedirect("/profile/create");
             }
-            response.sendRedirect("/profile/create");
         } else {
             response.sendRedirect("/login");
         }

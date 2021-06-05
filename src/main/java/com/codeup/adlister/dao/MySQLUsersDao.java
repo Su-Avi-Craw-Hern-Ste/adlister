@@ -69,17 +69,16 @@ public class MySQLUsersDao implements Users {
 
 
     @Override
-    public Long addInfo(User user) {
-        String query = "INSERT INTO users(image, role, phone_number) VALUES (?, ?, ?)";
+    public void addInfo(User user) {
+        String query = "UPDATE users SET image = ?, role = ?, phone_number = ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getImage());
             stmt.setString(2, user.getRole());
             stmt.setString(3, user.getPhoneNumber());
+            stmt.setLong(4, user.getId());
             stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
+
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user information", e);
         }
