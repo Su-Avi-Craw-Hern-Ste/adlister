@@ -43,6 +43,8 @@
             </table>
         </div>
 
+        <a href="/ads/create" type="button" class="btn btn-primary">Create Ad</a>
+        <a href="/profile/edit" type="button" class="btn btn-primary">Edit Profile</a>
 
 
 
