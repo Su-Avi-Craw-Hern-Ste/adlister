@@ -20,25 +20,13 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
-        this.userId = userId;
-        this.title = title;
-        this.price = price;
-        this.rarity = rarity;
-        this.description = description;
-        setCategories(categories);
-        setImages(images);
-    }
-
-    public Ad(long id, long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
+    public Ad(long id, long userId, String title, int price, String rarity, String description) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.price = price;
         this.rarity = rarity;
         this.description = description;
-        this.categories = categories;
-        this.images = images;
     }
 
     public long getId() {

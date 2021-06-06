@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads {
+public class MySQLAdsDao implements Ads, Categories {
     private Connection connection;
 
     public MySQLAdsDao(Config config) {
@@ -38,6 +38,29 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()) {
+            ads.add(extractAd(rs));
+        }
+        return ads;
+    }
+
+    private Ad extractAd(ResultSet rs) throws SQLException {
+        Ad ad = new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getInt("price"),
+                rs.getString("rarity"),
+                rs.getString("description")
+        );
+        addCategories(ad);
+
+
+        return ad;
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
@@ -57,21 +80,19 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
-        return new Ad(
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getInt("price"),
-            rs.getString("rarity"),
-            rs.getString("description")
-        );
-    }
-
-    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
-        List<Ad> ads = new ArrayList<>();
-        while (rs.next()) {
-            ads.add(extractAd(rs));
+    @Override
+    public void addCategories(Ad ad) {
+        try {
+            String insertQuery = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, SELECT categories.id FROM categories WHERE categories.category = ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getId());
+            List<String> categories = ad.getCategories();
+            for (String category : categories) {
+                stmt.setString(2, category);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
         }
-        return ads;
     }
 }

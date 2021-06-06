@@ -1,5 +1,10 @@
 package com.codeup.adlister.dao;
 
-public class Categories {
+import com.codeup.adlister.models.Ad;
 
+import java.util.List;
+
+public interface Categories {
+    // get categories
+    void addCategories(Ad ad);
 }

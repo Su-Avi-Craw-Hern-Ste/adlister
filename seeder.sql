@@ -8,10 +8,14 @@ VALUES
        ('manni', 'manni123@gmail.com', 'encrypted_password', 50000, 'Assassin', '210-654-3210', 'localblahblah4');
 
 INSERT INTO categories (category)
-VALUES ('items'),
-       ('materials'),
-       ('animals'),
-       ('weapons');
+VALUES ('Armor'),
+       ('Weapons'),
+       ('Animals'),
+       ('Materials'),
+       ('Consumables'),
+       ('Tools'),
+       ('Treasures'),
+       ('Misc (anything not in above categories)');
 
 INSERT INTO images (image)
 VALUES ('dummy_url'),

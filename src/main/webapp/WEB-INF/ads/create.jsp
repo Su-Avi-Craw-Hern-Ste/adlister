@@ -71,6 +71,18 @@
                     </label>
                 </div>
                 <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="animals" id="animals" name="categories">
+                    <label class="form-check-label" for="animals">
+                        Animals
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="materials" id="materials" name="categories">
+                    <label class="form-check-label" for="materials">
+                        Materials
+                    </label>
+                </div>
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="consumables" id="consumables" name="categories">
                     <label class="form-check-label" for="consumables">
                         Consumables
