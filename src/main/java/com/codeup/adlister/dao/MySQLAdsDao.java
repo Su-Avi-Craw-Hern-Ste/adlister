@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads {
-    private Connection connection = null;
+public class MySQLAdsDao implements Ads, Categories, Images {
+    private Connection connection;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -28,7 +28,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads");
             ResultSet rs = stmt.executeQuery();
@@ -38,18 +38,39 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()) {
+            ads.add(extractAd(rs));
+        }
+        return ads;
+    }
+
+    private Ad extractAd(ResultSet rs) throws SQLException {
+        Ad ad = new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getInt("price"),
+                rs.getString("rarity"),
+                rs.getString("description")
+        );
+        addCategories(ad);
+
+
+        return ad;
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(id, user_id, image_id, title, price, rarity, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, price, rarity, description) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getId());
-            stmt.setLong(2, ad.getUserId());
-            stmt.setLong(3, ad.getImageId());
-            stmt.setString(4, ad.getTitle());
-            stmt.setInt(5, ad.getPrice());
-            stmt.setString(6, ad.getRarity());
-            stmt.setString(7, ad.getDescription());
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setInt(3, ad.getPrice());
+            stmt.setString(4, ad.getRarity());
+            stmt.setString(5, ad.getDescription());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -59,23 +80,52 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
-        return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getLong("imageId"),
-            rs.getString("title"),
-            rs.getInt("price"),
-            rs.getString("rarity"),
-            rs.getString("description")
-        );
+    @Override
+    public void addCategories(Ad ad) {
+        try {
+            String insertQuery = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, SELECT categories.id FROM categories WHERE categories.category = ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getId());
+            List<String> categories = ad.getCategories();
+            for (String category : categories) {
+                stmt.setString(2, category);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
     }
 
-    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
-        List<Ad> ads = new ArrayList<>();
-        while (rs.next()) {
-            ads.add(extractAd(rs));
+    @Override
+    public void addImages(Ad ad) {
+        try {
+            String insertQuery = "INSERT INTO ad_image(ad_id, category_id) VALUES (?, SELECT images.id FROM images WHERE images.image = ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getId());
+            List<String> images = ad.getImages();
+            for (String image : images) {
+                stmt.setString(2, image);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
         }
-        return ads;
     }
+
+    public Long insertImage() {
+        try {
+            String insertQuery = "INSERT INTO images(image) VALUES (?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            for ()
+//            stmt.setLong(1, ad.getUserId());
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
 }
