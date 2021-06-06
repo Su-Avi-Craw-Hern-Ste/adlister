@@ -1,23 +1,16 @@
 package com.codeup.adlister.models;
 
-public class Ad {               //item
+import java.util.List;
+
+public class Ad {
     private long id;            //item id PRIMARY KEY
     private long userId;        //userId REFERENCES users(id)
-    private long imageId;       //id for image REFERENCES images(id)
     private String title;       //item name
     private int price;          //item's assigned price by user
     private String rarity;      //item's rarity/condition
-    private String description; //description
-
-    public Ad(long id, long userId, long imageId, String title, int price, String rarity, String description) {
-        this.id = id;
-        this.userId = userId;
-        this.imageId = imageId;
-        this.title = title;
-        this.price = price;
-        this.rarity = rarity;
-        this.description = description;
-    }
+    private String description;
+    private List<String> categories;
+    private List<String> images;
 
     public Ad(long userId, String title, int price, String rarity, String description) {
         this.userId = userId;
@@ -25,6 +18,27 @@ public class Ad {               //item
         this.price = price;
         this.rarity = rarity;
         this.description = description;
+    }
+
+    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
+        this.userId = userId;
+        this.title = title;
+        this.price = price;
+        this.rarity = rarity;
+        this.description = description;
+        setCategories(categories);
+        setImages(images);
+    }
+
+    public Ad(long id, long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.price = price;
+        this.rarity = rarity;
+        this.description = description;
+        this.categories = categories;
+        this.images = images;
     }
 
     public long getId() {
@@ -42,10 +56,6 @@ public class Ad {               //item
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
-    public long getImageId() { return imageId; }
-
-    public void setImageId(long imageId) { this.imageId = imageId; }
 
     public String getTitle() {
         return title;
@@ -70,4 +80,21 @@ public class Ad {               //item
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
 }

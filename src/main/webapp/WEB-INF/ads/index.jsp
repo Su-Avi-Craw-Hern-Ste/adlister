@@ -14,12 +14,16 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2>${ad.title}   ${ad.cost}</h2>
-            <img src="" alt="item_image">
-            <h3>${ad.rarity}</h3>
-            <p>${ad.description}</p>
+            <h2><c:out value="${ad.title}" /></h2>
+            <p><c:out value="${ad.price}" /></p>
+            <p><c:out value="${ad.rarity}" /></p>
+            <c:forEach var="category" items="${categories}">
+
+            </c:forEach>
+            <p><c:out value="${ad.description}" /></p>
         </div>
     </c:forEach>
+    <img src="" alt="item_image">
 </div>
 
 </body>

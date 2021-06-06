@@ -59,37 +59,37 @@
             <div class="form-group">
                 <label>Categories</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="armor" id="armor" name="category">
+                    <input class="form-check-input" type="checkbox" value="armor" id="armor" name="categories">
                     <label class="form-check-label" for="armor">
                         Armor
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="weapons" id="weapons">
+                    <input class="form-check-input" type="checkbox" value="weapons" id="weapons" name="categories">
                     <label class="form-check-label" for="weapons">
                         Weapons
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="consumables" id="consumables">
+                    <input class="form-check-input" type="checkbox" value="consumables" id="consumables" name="categories">
                     <label class="form-check-label" for="consumables">
                         Consumables
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tools" id="tools">
+                    <input class="form-check-input" type="checkbox" value="tools" id="tools" name="categories">
                     <label class="form-check-label" for="tools">
                         Tools
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="treasures" id="treasures">
+                    <input class="form-check-input" type="checkbox" value="treasures" id="treasures" name="categories">
                     <label class="form-check-label" for="treasures">
                         Treasures
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Misc" id="misc">
+                    <input class="form-check-input" type="checkbox" value="Misc" id="misc" name="categories">
                     <label class="form-check-label" for="misc">
                         Misc (anything not in above categories)
                     </label>
@@ -99,8 +99,11 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-            <label for="image">Upload images</label>
-            <input type="file" id="image" name="image" accept="image/*" multiple>
+            <div class="form-group">
+                <label for="images">Upload images</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple>
+            </div>
+
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
-    private Connection connection = null;
+    private Connection connection;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -28,7 +28,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads");
             ResultSet rs = stmt.executeQuery();
@@ -41,15 +41,13 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(id, user_id, image_id, title, price, rarity, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, price, rarity, description) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getId());
-            stmt.setLong(2, ad.getUserId());
-            stmt.setLong(3, ad.getImageId());
-            stmt.setString(4, ad.getTitle());
-            stmt.setInt(5, ad.getPrice());
-            stmt.setString(6, ad.getRarity());
-            stmt.setString(7, ad.getDescription());
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setInt(3, ad.getPrice());
+            stmt.setString(4, ad.getRarity());
+            stmt.setString(5, ad.getDescription());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -61,9 +59,7 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
             rs.getLong("user_id"),
-            rs.getLong("imageId"),
             rs.getString("title"),
             rs.getInt("price"),
             rs.getString("rarity"),

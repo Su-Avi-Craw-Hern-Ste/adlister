@@ -10,10 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Set response content type
+        response.setContentType("text/html");
+
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
@@ -24,6 +29,13 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+
+        String[] categories = request.getParameterValues("categories");
+        List<String> categoryList = Arrays.asList(categories);
+
+        String[] images = request.getParameterValues("images");
+        List<String> imageList = Arrays.asList(images);
+
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
@@ -31,7 +43,8 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("rarity"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        long adId = DaoFactory.getAdsDao().insert(ad);
+
         response.sendRedirect("/ads");
     }
 }
