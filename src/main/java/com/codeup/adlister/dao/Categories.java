@@ -5,6 +5,6 @@ import com.codeup.adlister.models.Ad;
 import java.util.List;
 
 public interface Categories {
-    // get categories
+    // add categories to ad
     void addCategories(Ad ad);
 }

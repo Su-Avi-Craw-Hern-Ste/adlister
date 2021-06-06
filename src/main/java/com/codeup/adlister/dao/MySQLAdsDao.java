@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads, Categories {
+public class MySQLAdsDao implements Ads, Categories, Images {
     private Connection connection;
 
     public MySQLAdsDao(Config config) {
@@ -95,4 +95,37 @@ public class MySQLAdsDao implements Ads, Categories {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
+    @Override
+    public void addImages(Ad ad) {
+        try {
+            String insertQuery = "INSERT INTO ad_image(ad_id, category_id) VALUES (?, SELECT images.id FROM images WHERE images.image = ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getId());
+            List<String> images = ad.getImages();
+            for (String image : images) {
+                stmt.setString(2, image);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+    public Long insertImage() {
+        try {
+            String insertQuery = "INSERT INTO images(image) VALUES (?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            for ()
+//            stmt.setLong(1, ad.getUserId());
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
 }
