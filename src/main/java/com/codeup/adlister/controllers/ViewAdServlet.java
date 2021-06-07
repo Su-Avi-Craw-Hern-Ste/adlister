@@ -14,6 +14,10 @@ public class ViewAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+        if (request.getSession().getAttribute("ad") == null) {
+            response.sendRedirect("/ads/create");
+            return;
+        }
         request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
     }
 }

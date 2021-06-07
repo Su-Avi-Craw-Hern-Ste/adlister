@@ -11,15 +11,16 @@ public class Ad {
     private int price;          //item's assigned price by user
     private String rarity;      //item's rarity/condition
     private String description;
-    private List<String> categories; //? id or value??????????
+    private List<String> categories;
     private List<Long> imageIds;  // ?
 
-    public Ad(long userId, String title, int price, String rarity, String description) {
+    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories) {
         this.userId = userId;
         this.title = title;
         this.price = price;
         this.rarity = rarity;
         this.description = description;
+        this.categories = categories;
     }
 
     public Ad(long id, long userId, String title, int price, String rarity, String description) {
@@ -75,7 +76,7 @@ public class Ad {
         return categories;
     }
 
-    public void setCategoryIds(List<String> categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
 

@@ -32,23 +32,14 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
 
-        String[] categories = request.getParameterValues("categories");
-        long[] categoryIds = new long[categories.length];
-        for(int i = 0; i < categoryIds.length; i++) {
-            categoryIds[i] = Long.parseLong(categories[i]);
-        }
-
-        String[] images = request.getParameterValues("images");
-        List<String> imageList = Arrays.asList(images);
-
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
             Integer.parseInt(request.getParameter("price")),
             request.getParameter("rarity"),
-            request.getParameter("description")
+            request.getParameter("description"),
+            Arrays.asList(request.getParameterValues("categories"))
         );
-//        ad.setCategoryIds(categoryIds);
 
         // insert ad into ads table in db & get ad_id
         DaoFactory.getAdsDao().insert(ad);

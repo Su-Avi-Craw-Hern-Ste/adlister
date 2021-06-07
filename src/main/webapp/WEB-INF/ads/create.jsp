@@ -59,51 +59,51 @@
             <div class="form-group">
                 <label>Categories</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" id="armor" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Armor" id="armor" name="categories">
                     <label class="form-check-label" for="armor">
                         Armor
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" id="weapons" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Weapons" id="weapons" name="categories">
                     <label class="form-check-label" for="weapons">
                         Weapons
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" id="animals" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Animals" id="animals" name="categories">
                     <label class="form-check-label" for="animals">
                         Animals
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" id="materials" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Materials" id="materials" name="categories">
                     <label class="form-check-label" for="materials">
                         Materials
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" id="consumables" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Consumables" id="consumables" name="categories">
                     <label class="form-check-label" for="consumables">
                         Consumables
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="6" id="tools" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Tools" id="tools" name="categories">
                     <label class="form-check-label" for="tools">
                         Tools
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="7" id="treasures" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Treasures" id="treasures" name="categories">
                     <label class="form-check-label" for="treasures">
                         Treasures
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="8" id="misc" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Misc(anything not in above categories)" id="misc" name="categories">
                     <label class="form-check-label" for="misc">
-                        Misc (anything not in above categories)
+                        Misc(anything not in above categories)
                     </label>
                 </div>
             </div>

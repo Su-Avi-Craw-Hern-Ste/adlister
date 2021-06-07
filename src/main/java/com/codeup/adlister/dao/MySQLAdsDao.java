@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads, Categories, Images {
+public class MySQLAdsDao implements Ads {
     private Connection connection;
 
     public MySQLAdsDao(Config config) {
@@ -52,7 +52,7 @@ public class MySQLAdsDao implements Ads, Categories, Images {
                 rs.getString("rarity"),
                 rs.getString("description")
         );
-        ad.setCategoryIds(extractCategories(ad));
+        ad.setCategories(extractCategories(ad));
         return ad;
     }
 
@@ -86,32 +86,17 @@ public class MySQLAdsDao implements Ads, Categories, Images {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             long id = rs.getLong(1);
-            insertCategories(ad);
+//            insertCategories(ad);
             return id;
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
 
-    @Override
-    public void insertCategories(Ad ad) {
-//        try {
-//            long[] categoryIds = ad.getCategoryIds();
-//            for (long id : categoryIds) {
-//                // insert ad_id and category_id into ad_category table in db
-//                String sql = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, ?)";
-//                PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//                stmt.setLong(1, ad.getId());
-//                stmt.setLong(2, id);
-//                stmt.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error creating a new ad.", e);
-//        }
-    }
 
-    @Override
-    public void addImages(Ad ad) {
+
+//    @Override
+//    public void addImages(Ad ad) {
 //        try {
 //            String insertQuery = "INSERT INTO ad_image(ad_id, category_id) VALUES (?, SELECT images.id FROM images WHERE images.image = ?)";
 //            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -124,7 +109,7 @@ public class MySQLAdsDao implements Ads, Categories, Images {
 //        } catch (SQLException e) {
 //            throw new RuntimeException("Error creating a new ad.", e);
 //        }
-    }
+//    }
 
 //    public Long insertImage() {
 //        try {
