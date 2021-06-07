@@ -14,8 +14,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
-
+<jsp:include page="/WEB-INF/partials/afterLoginNav.jsp" />
 
 <div class="container">
     <h1><c:out value="${ad.title}" /></h1>
