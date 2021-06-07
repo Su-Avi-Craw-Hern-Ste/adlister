@@ -43,11 +43,12 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("rarity"),
             request.getParameter("description")
         );
+        ad.setCategories(categoryList);
+        ad.setImages(imageList);
+
         long adId = DaoFactory.getAdsDao().insert(ad);
-        request.setAttribute("ad", ad);
-        request.setAttribute("categories", categoryList);
-        request.setAttribute("images", imageList);
-        request.getRequestDispatcher("/WEB-INF/ads/ad")
-                .forward(request, response);
+//        ad.setId(adId);
+        request.getSession().setAttribute("ad", ad);
+        response.sendRedirect("/ad");
     }
 }

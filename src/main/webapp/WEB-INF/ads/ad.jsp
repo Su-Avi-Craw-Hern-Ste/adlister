@@ -19,14 +19,17 @@
 
 <div class="container">
     <h1><c:out value="${ad.title}" /></h1>
-    <p><c:out value="${ad.price}" /></p>
-    <p><c:out value="${ad.rarity}" /></p>
-    <ul>
-        <c:forEach var="category" items="${categories}">
-            <li class="list-group-item"><c:out value="category" /></li>
-        </c:forEach>
-    </ul>
-    <p><c:out value="${ad.description}" /></p>
+    <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
+    <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
+    <div>
+        <strong>Categories: </strong>
+        <ul>
+            <c:forEach var="category" items="${ad.categories}">
+                <li class="list-group-item"><c:out value="${category}" /></li>
+            </c:forEach>
+        </ul>
+    </div>
+    <p><strong>Description: </strong><c:out value="${ad.description}" /></p>
     <div>
         <c:forEach var="image" items="${images}">
             <img src="${image}" alt="ad-image">

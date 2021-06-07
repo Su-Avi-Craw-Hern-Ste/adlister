@@ -20,37 +20,37 @@
             <div class="form-group">
                 <label>Rarity</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="common">
+                    <input class="form-check-input" type="radio" name="rarity" id="common" value="Common">
                     <label class="form-check-label" for="common">
                         Common
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="uncommon">
+                    <input class="form-check-input" type="radio" name="rarity" id="uncommon" value="Uncommon">
                     <label class="form-check-label" for="uncommon">
                         Uncommon
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="rare">
+                    <input class="form-check-input" type="radio" name="rarity" id="rare" value="Rare">
                     <label class="form-check-label" for="rare">
                         Rare
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="veryRare">
+                    <input class="form-check-input" type="radio" name="rarity" id="veryRare" value="Very Rare">
                     <label class="form-check-label" for="veryRare">
                         Very Rare
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="legendary">
+                    <input class="form-check-input" type="radio" name="rarity" id="legendary" value="Legendary">
                     <label class="form-check-label" for="legendary">
                         Legendary
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="artifact">
+                    <input class="form-check-input" type="radio" name="rarity" id="artifact" value="Artifact">
                     <label class="form-check-label" for="artifact">
                         Artifact
                     </label>
