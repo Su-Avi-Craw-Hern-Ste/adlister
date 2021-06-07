@@ -29,7 +29,7 @@ public class CreateAdServlet extends HttpServlet {
             .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
 
         Ad ad = new Ad(
@@ -41,8 +41,9 @@ public class CreateAdServlet extends HttpServlet {
             Arrays.asList(request.getParameterValues("categories"))
         );
 
-        // insert ad into ads table in db & get ad_id
-        DaoFactory.getAdsDao().insert(ad);
+        // insert ad into ads table and categories to ad_category table in db
+        long adId = DaoFactory.getAdsDao().insert(ad);
+        DaoFactory.getCategoriesDao().insertCategories(ad, adId);
         request.getSession().setAttribute("ad", ad);
         response.sendRedirect("/ad");
     }
