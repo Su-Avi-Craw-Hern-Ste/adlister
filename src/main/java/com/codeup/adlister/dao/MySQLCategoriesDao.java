@@ -41,19 +41,20 @@ public class MySQLCategoriesDao implements Categories {
     }
 
     @Override
-    public void insertCategories(Ad ad) {
+    public void insertCategories(Ad ad, long adId) {
         try {
              List<String> categories = ad.getCategories();
             for (String category : categories) {
                 // insert ad_id and category_id into ad_category table in db
                 String sql = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, (SELECT id FROM categories WHERE category = ?))";
-                PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                stmt.setLong(1, ad.getId());
+                PreparedStatement stmt = connection.prepareStatement(sql);
+                stmt.setLong(1, adId);
                 stmt.setString(2, category);
+                System.out.println(stmt);
                 stmt.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error inserting categories.", e);
         }
     }
 }

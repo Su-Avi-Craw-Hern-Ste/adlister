@@ -8,5 +8,5 @@ public interface Categories {
     // get a list of all the categories
     List<String> all(Ad ad);
     // add categories to ad
-    void insertCategories(Ad ad);
+    void insertCategories(Ad ad, long adId);
 }
