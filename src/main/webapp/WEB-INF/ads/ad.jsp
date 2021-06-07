@@ -14,19 +14,22 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 
 
 <div class="container">
     <h1><c:out value="${ad.title}" /></h1>
-    <p><c:out value="${ad.price}" /></p>
-    <p><c:out value="${ad.rarity}" /></p>
-    <ul>
-        <c:forEach var="category" items="${categories}">
-            <li class="list-group-item"><c:out value="category" /></li>
-        </c:forEach>
-    </ul>
-    <p><c:out value="${ad.description}" /></p>
+    <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
+    <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
+    <div>
+        <strong>Categories: </strong>
+        <ul>
+            <c:forEach var="category" items="${ad.categories}">
+                <li class="list-group-item"><c:out value="${category}" /></li>
+            </c:forEach>
+        </ul>
+    </div>
+    <p><strong>Description: </strong><c:out value="${ad.description}" /></p>
     <div>
         <c:forEach var="image" items="${images}">
             <img src="${image}" alt="ad-image">
@@ -37,5 +40,6 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>

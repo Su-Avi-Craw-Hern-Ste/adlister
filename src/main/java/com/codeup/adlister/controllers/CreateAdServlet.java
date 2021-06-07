@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,27 +29,22 @@ public class CreateAdServlet extends HttpServlet {
             .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
-
-        String[] categories = request.getParameterValues("categories");
-        List<String> categoryList = Arrays.asList(categories);
-
-        String[] images = request.getParameterValues("images");
-        List<String> imageList = Arrays.asList(images);
 
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
             Integer.parseInt(request.getParameter("price")),
             request.getParameter("rarity"),
-            request.getParameter("description")
+            request.getParameter("description"),
+            Arrays.asList(request.getParameterValues("categories"))
         );
+
+        // insert ad into ads table and categories to ad_category table in db
         long adId = DaoFactory.getAdsDao().insert(ad);
-        request.setAttribute("ad", ad);
-        request.setAttribute("categories", categoryList);
-        request.setAttribute("images", imageList);
-        request.getRequestDispatcher("/WEB-INF/ads/ad")
-                .forward(request, response);
+        DaoFactory.getCategoriesDao().insertCategories(ad, adId);
+        request.getSession().setAttribute("ad", ad);
+        response.sendRedirect("/ad");
     }
 }

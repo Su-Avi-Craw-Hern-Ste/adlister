@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/afterLoginNav.jsp" />
 
     <div class="container">
         <h1>Welcome, <c:out value="${sessionScope.user.username}"/>!</h1>
@@ -46,7 +46,29 @@
         <a href="/ads/create" type="button" class="btn btn-primary">Create Ad</a>
         <a href="/profile/edit" type="button" class="btn btn-primary">Edit Profile</a>
 
-
+        <h2>Here are the ads <c:out value="${sessionScope.user.username}"/> has posted:</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <c:forEach var="ad" items="${ads}">
+                <div class="col">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><c:out value="${ad.title}" /></h5>
+                            <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
+                            <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
+                            <div>
+                                <strong>Categories: </strong>
+                                <ul>
+                                    <c:forEach var="category" items="${ad.categories}">
+                                        <li class="list-group-item"><c:out value="${category}" /></li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
 
     </div>
 

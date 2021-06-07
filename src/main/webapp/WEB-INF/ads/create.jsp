@@ -20,37 +20,37 @@
             <div class="form-group">
                 <label>Rarity</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="common">
+                    <input class="form-check-input" type="radio" name="rarity" id="common" value="Common">
                     <label class="form-check-label" for="common">
                         Common
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="uncommon">
+                    <input class="form-check-input" type="radio" name="rarity" id="uncommon" value="Uncommon">
                     <label class="form-check-label" for="uncommon">
                         Uncommon
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="rare">
+                    <input class="form-check-input" type="radio" name="rarity" id="rare" value="Rare">
                     <label class="form-check-label" for="rare">
                         Rare
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="veryRare">
+                    <input class="form-check-input" type="radio" name="rarity" id="veryRare" value="Very Rare">
                     <label class="form-check-label" for="veryRare">
                         Very Rare
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="legendary">
+                    <input class="form-check-input" type="radio" name="rarity" id="legendary" value="Legendary">
                     <label class="form-check-label" for="legendary">
                         Legendary
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rarity" id="artifact">
+                    <input class="form-check-input" type="radio" name="rarity" id="artifact" value="Artifact">
                     <label class="form-check-label" for="artifact">
                         Artifact
                     </label>
@@ -59,51 +59,51 @@
             <div class="form-group">
                 <label>Categories</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="armor" id="armor" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Armor" id="armor" name="categories">
                     <label class="form-check-label" for="armor">
                         Armor
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="weapons" id="weapons" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Weapons" id="weapons" name="categories">
                     <label class="form-check-label" for="weapons">
                         Weapons
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="animals" id="animals" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Animals" id="animals" name="categories">
                     <label class="form-check-label" for="animals">
                         Animals
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="materials" id="materials" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Materials" id="materials" name="categories">
                     <label class="form-check-label" for="materials">
                         Materials
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="consumables" id="consumables" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Consumables" id="consumables" name="categories">
                     <label class="form-check-label" for="consumables">
                         Consumables
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="tools" id="tools" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Tools" id="tools" name="categories">
                     <label class="form-check-label" for="tools">
                         Tools
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="treasures" id="treasures" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Treasures" id="treasures" name="categories">
                     <label class="form-check-label" for="treasures">
                         Treasures
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Misc" id="misc" name="categories">
+                    <input class="form-check-input" type="checkbox" value="Misc(anything not in above categories)" id="misc" name="categories">
                     <label class="form-check-label" for="misc">
-                        Misc (anything not in above categories)
+                        Misc(anything not in above categories)
                     </label>
                 </div>
             </div>
@@ -119,5 +119,7 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+
+    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>
