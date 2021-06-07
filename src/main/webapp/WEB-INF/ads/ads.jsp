@@ -12,9 +12,25 @@
 <div class="container">
     <h1 id="main-header">Here Are all the ads!</h1>
     <form action="/ads" method="post">
-        <label for="search">Search by title or category</label>
-        <input id="search" type="text" class="form-control" name="search">
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="input-group">
+            <input id="search" type="text" class="form-control" name="search" placeholder="Search by title">
+            <span class="input-group-text"><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+        </div>
+        <div class="dropdown">
+            <span>Filter By</span>
+            <label>
+                <select>
+                    <option class="dropdown-content" name="armor" value="Armor">Armor</option>
+                    <option class="dropdown-content" name="weapons" value="Weapons">Weapons</option>
+                    <option class="dropdown-content" name="animals" value="Animals">Animals</option>
+                    <option class="dropdown-content" name="materials" value="Materials">Materials</option>
+                    <option class="dropdown-content" name="consumables" value="Consumables">Consumables</option>
+                    <option class="dropdown-content" name="tools" value="Tools">Tools</option>
+                    <option class="dropdown-content" name="treasures" value="Treasures">Treasures</option>
+                    <option class="dropdown-content" name="misc" value="Misc (anything not in above categories)">Misc</option>
+                </select>
+            </label>
+        </div>
     </form>
 
     <div class="row">

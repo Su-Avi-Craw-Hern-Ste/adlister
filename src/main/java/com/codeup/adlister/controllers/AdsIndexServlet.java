@@ -22,9 +22,11 @@ public class AdsIndexServlet extends HttpServlet {
         if (!request.getParameter("search").isEmpty()) {
             String searchTitle = request.getParameter("search");
             request.setAttribute("searchTitle", searchTitle);
-            List<Ad> ads = DaoFactory.getAdsDao().searchByTitle(searchTitle);
+            List<Ad> ads = DaoFactory.getAdsDao().search(searchTitle);
             request.setAttribute("ads", ads);
             request.getRequestDispatcher("/WEB-INF/ads/ads.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/ads");
         }
     }
 }

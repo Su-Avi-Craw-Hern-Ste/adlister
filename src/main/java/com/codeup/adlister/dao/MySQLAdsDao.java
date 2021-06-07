@@ -24,6 +24,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // get a list of all the ads
     @Override
     public List<Ad> all() {
         try {
@@ -35,6 +36,8 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // get a list of all the ads for one user
+    @Override
     public List<Ad> all(User user) {
         try {
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
@@ -88,6 +91,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // insert a new ad and return the new ad's id
     @Override
     public Long insert(Ad ad) {
         try {
@@ -111,15 +115,34 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    public List<Ad> searchByTitle(String searchTitle) {
+    // search ads by title
+    @Override
+    public List<Ad> search(String searchTitle) {
         try {
             // set up the query for MySQL
-            String sql = "SELECT * From ads WHERE title LIKE ?";
+            String sql = "SELECT * FROM ads WHERE title LIKE ?";
             String searchTermWithWildcards = "%" + searchTitle + "%";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, searchTermWithWildcards);
 
-            System.out.println(stmt);
+            // run query in MySQL
+            ResultSet rs = stmt.executeQuery();
+
+            // create ads list
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting the ads searched.", e);
+        }
+    }
+
+    // filter/search ads by category
+    @Override
+    public List<Ad> filter(String category) {
+        try {
+            String sql = "SELECT * FROM ads JOIN ad_category ac ON ac.ad_id = ads.id JOIN categories c ON c.id = ac.category_id WHERE c.category = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, category);
+
             // run query in MySQL
             ResultSet rs = stmt.executeQuery();
 
