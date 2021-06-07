@@ -13,7 +13,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 <form action="/profile/create" method="post" style="border:1px solid #ccc">
     <div class="container">
         <h1>Create Profile</h1>
