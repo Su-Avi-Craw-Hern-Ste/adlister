@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1 id="main-header">Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
@@ -35,6 +35,18 @@
     </c:forEach>
 </div>
 
+<style>
+    body {
+        background-image: url("/img/local/NBM.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%
+    }
+
+    #main-header {
+        text-decoration: #cccccc !important;
+    }
+</style>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
