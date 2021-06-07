@@ -119,5 +119,7 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+
+    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>
