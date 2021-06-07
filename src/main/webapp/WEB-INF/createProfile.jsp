@@ -8,12 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp">
+    <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Create profile" />
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/afterLoginNav.jsp" />
+<jsp:include page="partials/afterLoginNav.jsp" />
 <form action="/profile/create" method="post" style="border:1px solid #ccc">
     <div class="container">
         <h1>Create Profile</h1>
