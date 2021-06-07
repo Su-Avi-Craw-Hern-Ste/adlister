@@ -8,7 +8,7 @@
             <li><a href="/logout">Logout</a></li>
             <li><a href="/profile"><img src=""></a></li>
             <li>
-                <a href="/store/cart.stml" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                <a href="#" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
                 <i class="fas fa fa-shopping-cart fa-lg"></i>
                 <span class="cart-basket d-flex align-items-center justify-content-center">0</span></a>
             </li>
