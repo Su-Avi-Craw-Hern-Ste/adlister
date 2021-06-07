@@ -3,9 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +52,24 @@ public class MySQLAdsDao implements Ads, Categories, Images {
                 rs.getString("rarity"),
                 rs.getString("description")
         );
-        addCategories(ad);
-
-
+        ad.setCategoryIds(extractCategories(ad));
         return ad;
+    }
+
+    private List<String> extractCategories(Ad ad) {
+        List<String> categories = new ArrayList<>();
+        try {
+            String sql = "SELECT categories.category FROM categories JOIN ad_category ON ad_category.category_id = categories.id JOIN ads ON ads.id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, ad.getId());
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                categories.add(rs.getString("category"));
+            }
+            return categories;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error extracting categories.", e);
+        }
     }
 
     @Override
@@ -74,58 +85,61 @@ public class MySQLAdsDao implements Ads, Categories, Images {
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            return rs.getLong(1);
+            long id = rs.getLong(1);
+            insertCategories(ad);
+            return id;
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
 
     @Override
-    public void addCategories(Ad ad) {
-        try {
-            String insertQuery = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, SELECT categories.id FROM categories WHERE categories.category = ?)";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getId());
-            List<String> categories = ad.getCategories();
-            for (String category : categories) {
-                stmt.setString(2, category);
-                stmt.executeUpdate();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
-        }
+    public void insertCategories(Ad ad) {
+//        try {
+//            long[] categoryIds = ad.getCategoryIds();
+//            for (long id : categoryIds) {
+//                // insert ad_id and category_id into ad_category table in db
+//                String sql = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, ?)";
+//                PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//                stmt.setLong(1, ad.getId());
+//                stmt.setLong(2, id);
+//                stmt.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating a new ad.", e);
+//        }
     }
 
     @Override
     public void addImages(Ad ad) {
-        try {
-            String insertQuery = "INSERT INTO ad_image(ad_id, category_id) VALUES (?, SELECT images.id FROM images WHERE images.image = ?)";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getId());
-            List<String> images = ad.getImages();
-            for (String image : images) {
-                stmt.setString(2, image);
-                stmt.executeUpdate();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
-        }
+//        try {
+//            String insertQuery = "INSERT INTO ad_image(ad_id, category_id) VALUES (?, SELECT images.id FROM images WHERE images.image = ?)";
+//            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setLong(1, ad.getId());
+//            List<String> images = ad.getImages();
+//            for (String image : images) {
+//                stmt.setString(2, image);
+//                stmt.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating a new ad.", e);
+//        }
     }
 
-    public Long insertImage() {
-        try {
-            String insertQuery = "INSERT INTO images(image) VALUES (?)";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-//            for ()
-//            stmt.setLong(1, ad.getUserId());
-
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
-        }
-    }
+//    public Long insertImage() {
+//        try {
+//            String insertQuery = "INSERT INTO images(image) VALUES (?)";
+//            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+////            for ()
+////            stmt.setLong(1, ad.getUserId());
+//
+//            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating a new ad.", e);
+//        }
+//    }
 
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Categories {
     // add categories to ad
-    void addCategories(Ad ad);
+    void insertCategories(Ad ad);
 }
