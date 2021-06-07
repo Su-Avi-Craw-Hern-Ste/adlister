@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -25,9 +26,19 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    public List<Ad> all(User user) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
+            stmt.setLong(1, user.getId());
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
@@ -59,7 +70,7 @@ public class MySQLAdsDao implements Ads {
     private List<String> extractCategories(Ad ad) {
         List<String> categories = new ArrayList<>();
         try {
-            String sql = "SELECT categories.category FROM categories JOIN ad_category ON ad_category.category_id = categories.id JOIN ads ON ads.id = ?";
+            String sql = "SELECT c.category FROM categories c JOIN ad_category ac ON ac.category_id = c.id JOIN ads ON ads.id = ac.ad_id WHERE ads.id = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setLong(1, ad.getId());
             ResultSet rs = stmt.executeQuery();
