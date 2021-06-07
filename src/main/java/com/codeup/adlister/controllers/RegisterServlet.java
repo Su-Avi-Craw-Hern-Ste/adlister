@@ -16,7 +16,7 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -26,10 +26,41 @@ public class RegisterServlet extends HttpServlet {
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+            || (! password.equals(passwordConfirmation))||(password.length()<=8)
+            || (!(password.contains("@") || password.contains("#")
+            || password.contains("!") || password.contains("~")
+            || password.contains("$") || password.contains("%")
+            || password.contains("^") || password.contains("&")
+            || password.contains("*") || password.contains("(")
+            || password.contains(")") || password.contains("-")
+            || password.contains("+") || password.contains("/")
+            || password.contains(":") || password.contains(".")
+            || password.contains(", ") || password.contains("<")
+            || password.contains(">") || password.contains("?")
+            || password.contains("|")))
+            || username.length()>=20
+            || username.contains("@") || username.contains("#")
+            || username.contains("!") || username.contains("~")
+            || username.contains("$") || username.contains("%")
+            || username.contains("^") || username.contains("&")
+            || username.contains("*") || username.contains("(")
+            || username.contains(")") || username.contains("-")
+            || username.contains("+") || username.contains("/")
+            || username.contains(":") || username.contains(".")
+            || username.contains(", ") || username.contains("<")
+            || username.contains(">") || username.contains("?")
+            || username.contains("|") ;
 
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+            //Username error message
+            String userNameError = "Username must be unique, less than 20 letters, can include numbers, and contain no special characters";
+            request.setAttribute("usernameError", userNameError);
+
+            // password error message
+            String passwordError = "Password should be at least 8 digits long and must contain special characters";
+            request.setAttribute("passwordError", passwordError);
+
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
 
