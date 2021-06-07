@@ -46,7 +46,18 @@
         <a href="/ads/create" type="button" class="btn btn-primary">Create Ad</a>
         <a href="/profile/edit" type="button" class="btn btn-primary">Edit Profile</a>
 
-
+        <h2>Here are the ads <c:out value="${sessionScope.user.username}"/> has posted:</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><c:out value="${ad.title}" /></h5>
+                        <d class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</d>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
