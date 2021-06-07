@@ -12,4 +12,8 @@ public interface Ads {
     List<Ad> all(User user);
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+    // search ads by title
+    List<Ad> search(String searchTitle);
+    // filter/search ads by category
+    List<Ad> filter(String category);
 }
