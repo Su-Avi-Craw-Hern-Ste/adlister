@@ -35,5 +35,11 @@
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
+
+    <div id="canv" width="32" height="32">
+
+    </div>
+
+    <script src="./js/js.js"></script>
 </body>
 </html>
