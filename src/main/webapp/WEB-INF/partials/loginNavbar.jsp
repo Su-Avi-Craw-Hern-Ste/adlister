@@ -5,9 +5,8 @@
             <a class="navbar-brand" href="/ads">Fantasy Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/index"></a>Logo</li>//Not sure which is the home page
+            <li><a href="/index"></a>Logo</li>
             <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
             <li><a href="/register">Register</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
