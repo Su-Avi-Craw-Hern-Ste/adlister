@@ -16,4 +16,6 @@ public interface Ads {
     List<Ad> search(String searchTitle);
     // filter/search ads by category
     List<Ad> filter(String category);
+    // get a list of images from db
+    List<String> retrieveImages(Ad ad);
 }

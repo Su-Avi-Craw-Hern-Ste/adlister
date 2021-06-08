@@ -114,14 +114,50 @@
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
             <div class="form-group">
-                <label for="images">Upload images</label>
-                <input type="file" id="images" name="images" accept="image/*" multiple>
+                <button type="button" class="btn btn-primary" id="images">Upload images</button>
             </div>
 
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
 
-    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<%--<script src="../js/keys.js"></script>--%>
+<%--<script src="../js/ads.js"></script>--%>
+<script>
+    "use strict";
+
+
+
+        // click upload images
+    $(document).ready(() => {
+        $("#images").click((e) => {
+            e.preventDefault();
+            uploadImages();
+            console.log("uploading images");
+        });
+    });
+
+    // const apiKey = fileStackToken;
+    const client = filestack.init("AOdETeOJaQ1em9xVAb3zRz");
+
+
+    function uploadImages() {
+        const options = {
+            accept: ["image/*"],
+            maxFiles: 10,
+            onUploadDone: (response) => {
+                console.log(response);
+            }
+        }
+        client.picker(options).open();
+
+    }
+
+</script>
 </body>
 </html>
