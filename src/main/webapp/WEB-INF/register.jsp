@@ -40,6 +40,6 @@
 
     </div>
 
-    <script src="./js/js.js"></script>
+    <script src="/js/js.js"></script>
 </body>
 </html>
