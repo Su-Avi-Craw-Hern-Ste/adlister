@@ -42,5 +42,6 @@
     </div>
 
     <script src="./js/js.js"></script>
+    <script src="./resources/js/formValidation.js"></script>
 </body>
 </html>
