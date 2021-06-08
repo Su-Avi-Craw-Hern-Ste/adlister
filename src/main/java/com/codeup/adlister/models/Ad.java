@@ -1,7 +1,6 @@
 package com.codeup.adlister.models;
 
 
-import java.sql.Array;
 import java.util.List;
 
 public class Ad {
