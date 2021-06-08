@@ -1,23 +1,27 @@
 "use strict";
 
 
-// $(document).ready(() => {
-    // click upload images,
+"use strict";
+
+// click upload images
+$(document).ready(() => {
     $("#images").click((e) => {
         e.preventDefault();
         uploadImages();
         console.log("uploading images");
     });
-// });
+});
 
-
-// const apiKey = fileStackToken;
-const client = filestack.init("AOdETeOJaQ1em9xVAb3zRz");
+const client = filestack.init(fileStackToken);
 
 
 function uploadImages() {
     const options = {
         accept: ["image/*"],
+        maxFiles: 10,
+        onUploadDone: (response) => {
+            console.log(response);
+        }
     }
     client.picker(options).open();
 

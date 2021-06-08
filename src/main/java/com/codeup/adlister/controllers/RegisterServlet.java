@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.dao.ValidationDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,39 +23,18 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
-        // validate input
-        boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || (! password.equals(passwordConfirmation))||(password.length()<=8)
-            || (!(password.contains("@") || password.contains("#")
-            || password.contains("!") || password.contains("~")
-            || password.contains("$") || password.contains("%")
-            || password.contains("^") || password.contains("&")
-            || password.contains("*") || password.contains("(")
-            || password.contains(")") || password.contains("-")
-            || password.contains("+") || password.contains("/")
-            || password.contains(":") || password.contains(".")
-            || password.contains(", ") || password.contains("<")
-            || password.contains(">") || password.contains("?")
-            || password.contains("|")))
-            || username.length()>=20
-            || username.contains("@") || username.contains("#")
-            || username.contains("!") || username.contains("~")
-            || username.contains("$") || username.contains("%")
-            || username.contains("^") || username.contains("&")
-            || username.contains("*") || username.contains("(")
-            || username.contains(")") || username.contains("-")
-            || username.contains("+") || username.contains("/")
-            || username.contains(":") || username.contains(".")
-            || username.contains(", ") || username.contains("<")
-            || username.contains(">") || username.contains("?")
-            || username.contains("|") ;
+        // call methods in ValidationDao
+        if (DaoFactory.getValidationDao().usernameHasError(username)) {
+            //Username error message
+            String usernameError = "Username must be unique, less than 20 letters, can include numbers, and contain no special characters";
+            request.getSession().setAttribute("usernameError", usernameError);
+        }
+
+        if ()
 
         if (inputHasErrors) {
-            //Username error message
-            String userNameError = "Username must be unique, less than 20 letters, can include numbers, and contain no special characters";
-            request.setAttribute("usernameError", userNameError);
+
+
 
             // password error message
             String passwordError = "Password should be at least 8 digits long and must contain special characters";
@@ -62,6 +42,10 @@ public class RegisterServlet extends HttpServlet {
 
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
+        }
+
+        if (DaoFactory.getValidationDao().isPasswordConfirmed(password,passwordConfirmation)) {
+            // green check
         }
 
         // create and save a new user
