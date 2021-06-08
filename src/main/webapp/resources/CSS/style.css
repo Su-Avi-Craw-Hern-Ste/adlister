@@ -7,10 +7,6 @@ body {
 canvas {
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 }
 
 .logo {
@@ -18,9 +14,6 @@ canvas {
     width: 50%;
     height: 50%;
     z-index: 10;
-<<<<<<< HEAD
-}
-=======
 }
 
 .img-container{
@@ -55,4 +48,3 @@ canvas {
 
 
 }
->>>>>>> main

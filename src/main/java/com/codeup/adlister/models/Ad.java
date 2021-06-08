@@ -5,14 +5,14 @@ import java.sql.Array;
 import java.util.List;
 
 public class Ad {
-    private long id;            //item id PRIMARY KEY
-    private long userId;        //userId REFERENCES users(id)
-    private String title;       //item name
-    private int price;          //item's assigned price by user
-    private String rarity;      //item's rarity/condition
+    private long id;
+    private long userId;
+    private String title;
+    private int price;
+    private String rarity;
     private String description;
     private List<String> categories;
-    private List<Long> imageIds;  // ?
+    private List<String> images;
 
     public Ad(long userId, String title, int price, String rarity, String description, List<String> categories) {
         this.userId = userId;
@@ -80,12 +80,12 @@ public class Ad {
         this.categories = categories;
     }
 
-//    public List<String> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<String> images) {
-//        this.images = images;
-//    }
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
 
 }
