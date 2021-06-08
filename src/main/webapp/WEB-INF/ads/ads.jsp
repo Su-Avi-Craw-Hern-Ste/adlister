@@ -26,6 +26,8 @@
 <body>
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 
+<input type="hidden" name="viewid" value="ads.jsp">
+
 <div class="container">
     <form action="/ads" method="post">
         <div class="input-group">
