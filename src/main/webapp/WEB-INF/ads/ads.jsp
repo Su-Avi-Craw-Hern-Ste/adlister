@@ -53,7 +53,7 @@
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-3">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="ad-image">
+                    <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
                     <div class="card-body">
                         <h5 class="card-title"><c:out value="${ad.title}" /></h5>
                     </div>
