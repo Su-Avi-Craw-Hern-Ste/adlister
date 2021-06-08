@@ -6,7 +6,7 @@
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
 </head>
-<body>
+<body id="home">
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 <div class="container">
 </div>
