@@ -25,7 +25,7 @@
 
 
 
-<script src="../resources/js/js.js"></script>
+<script src="resources/js/js.js"></script>
 
 </body>
 </html>
