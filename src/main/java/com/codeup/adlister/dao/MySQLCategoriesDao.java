@@ -36,7 +36,7 @@ public class MySQLCategoriesDao implements Categories {
             }
             return categories;
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving the categories!", e);
         }
     }
 
@@ -54,7 +54,7 @@ public class MySQLCategoriesDao implements Categories {
                 stmt.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error inserting categories.", e);
+            throw new RuntimeException("Error inserting categories!", e);
         }
     }
 }

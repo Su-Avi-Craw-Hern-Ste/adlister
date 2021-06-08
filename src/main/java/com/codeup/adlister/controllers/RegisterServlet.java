@@ -30,6 +30,7 @@ public class RegisterServlet extends HttpServlet {
             request.getSession().setAttribute("usernameError", usernameError);
         }
 
+
         if (DaoFactory.getValidationDao().emailHasError(email)){
             //Email error
             String emailError = "input correct email format";
@@ -48,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
             // green check
 
         }
+
 
         // create and save a new user
         User user = new User(username, email, password);

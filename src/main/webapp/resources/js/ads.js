@@ -21,6 +21,12 @@ function uploadImages() {
         maxFiles: 10,
         onUploadDone: (response) => {
             console.log(response);
+             $("#hidden").val(response.filesUploaded[0].url);
+            console.log($("#hidden").val());
+        },
+        onFileUploadFailed: (response) => {
+            console.log(response);
+
         }
     }
     client.picker(options).open();

@@ -115,6 +115,7 @@
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-primary" id="images">Upload images</button>
+                <input type="text" id="hidden">
             </div>
 
             <input type="submit" class="btn btn-block btn-primary">
@@ -128,34 +129,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../../resources/js/keys.js"></script>
 <script src="../../resources/js/ads.js"></script>
-<%--<script>--%>
-<%--    "use strict";--%>
-<%--    --%>
-<%--        // click upload images--%>
-<%--    $(document).ready(() => {--%>
-<%--        $("#images").click((e) => {--%>
-<%--            e.preventDefault();--%>
-<%--            uploadImages();--%>
-<%--            console.log("uploading images");--%>
-<%--        });--%>
-<%--    });--%>
-
-<%--    // const apiKey = fileStackToken;--%>
-<%--    const client = filestack.init("AOdETeOJaQ1em9xVAb3zRz");--%>
-
-
-<%--    function uploadImages() {--%>
-<%--        const options = {--%>
-<%--            accept: ["image/*"],--%>
-<%--            maxFiles: 10,--%>
-<%--            onUploadDone: (response) => {--%>
-<%--                console.log(response);--%>
-<%--            }--%>
-<%--        }--%>
-<%--        client.picker(options).open();--%>
-
-<%--    }--%>
-
-<%--</script>--%>
 </body>
 </html>
