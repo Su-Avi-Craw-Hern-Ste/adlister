@@ -21,8 +21,13 @@ function uploadImages() {
         maxFiles: 10,
         onUploadDone: (response) => {
             console.log(response);
-             $("#hidden").val(response.filesUploaded[0].url);
-            console.log($("#hidden").val());
+            let images = "";
+            for (let image of response.filesUploaded) {
+                images = images + image.url + ", ";
+            }
+            console.log(images)
+             $("#hidden").val(images);
+            $(".fa-check").toggleClass("hidden");
         },
         onFileUploadFailed: (response) => {
             console.log(response);

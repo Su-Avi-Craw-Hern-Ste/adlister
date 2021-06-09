@@ -50,7 +50,8 @@ public class MySQLCategoriesDao implements Categories {
                 PreparedStatement stmt = connection.prepareStatement(sql);
                 stmt.setLong(1, adId);
                 stmt.setString(2, category);
-                System.out.println(stmt);
+
+                // run sql in MySQL
                 stmt.executeUpdate();
             }
         } catch (SQLException e) {
