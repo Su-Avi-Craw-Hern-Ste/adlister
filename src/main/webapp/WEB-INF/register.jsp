@@ -12,18 +12,25 @@
         <form class="needs-validation" action="/register" method="post">
             <div class="form-group">
                 <label for="username" class="form-label">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
-                <p style="word: red">${usernameError}</p>
+                <input id="username" name="username" class="form-control" type="text" required>
+                <div class="invalid-feedback">
+                    Enter a valid username (Less than 20 characters)
+                </div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" name="email" class="form-control" type="email">
+                <div class="invalid-feedback">
+                    Enter a valid email (i.e. yourname@gmail.com)
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
-                <p style="word: red">${passwordError}</p>
+                <div class="invalid-feedback">
+                    Enter a valid password (Must contain )
+                </div>
             </div>
 
             <div class="form-group">
