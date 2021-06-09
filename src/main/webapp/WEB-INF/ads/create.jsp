@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-primary" id="images">Upload images</button>
-                <input type="text" id="hidden">
+                <input type="hidden" name="images" id="hidden">
             </div>
 
             <input type="submit" class="btn btn-block btn-primary">
