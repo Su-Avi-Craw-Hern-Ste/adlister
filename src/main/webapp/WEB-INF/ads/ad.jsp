@@ -18,6 +18,7 @@
 
 <div class="container">
     <h1><c:out value="${ad.title}" /></h1>
+    <p><c:out value="${user.username}" /></p>
     <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
     <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
     <div>
@@ -35,6 +36,15 @@
         </c:forEach>
     </div>
 </div>
+
+
+<form action="/ads/edit" method="post">
+    <button type="submit">Edit</button>
+</form>
+
+<form action="/ads/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
 
 
 

@@ -52,23 +52,25 @@
     <h1 id="main-header">Here Are all the ads!</h1>
     <div class="row">
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="<c:out value="${ad.images[0]}"/>" class="card-img-top" alt="ad-image">
-                    <div class="card-body">
-                        <h5 class="card-title"><c:out value="${ad.title}"/></h5>
+            <a href="<c:out value="ads/${ad.id}" />">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
+                        <div class="card-body">
+                            <h5 class="card-title"><c:out value="${ad.title}" /></h5>
+                        </div>
                     </div>
                     <div class="card-text">
-                        <p><strong>Price: </strong><c:out value="${ad.price}"/></p>
-                        <p><strong>Rarity: </strong><c:out value="${ad.rarity}"/></p>
+                        <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
+                        <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <c:forEach var="category" items="${ad.categories}">
-                            <li class="list-group-item"><c:out value="${category}"/></li>
+                            <li class="list-group-item"><c:out value="${category}" /></li>
                         </c:forEach>
                     </ul>
                 </div>
-            </div>
+            </a>
         </c:forEach>
     </div>
 
