@@ -47,7 +47,9 @@ public class RegisterServlet extends HttpServlet {
 
         if (DaoFactory.getValidationDao().isPasswordConfirmed(password,passwordConfirmation)) {
             // green check
-
+            String passwordMatchError = "Password does not match!";
+            request.setAttribute("confirmPass", passwordMatchError);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
 
 
