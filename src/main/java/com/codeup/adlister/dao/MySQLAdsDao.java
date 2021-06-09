@@ -192,4 +192,17 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //Deleting an add from the card
+    public void delete(Long userId, Long adId) {
+        try {
+            String insertQuery = "DELETE FROM ads WHERE id = ? AND user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, adId);
+            stmt.setLong(2, userId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting product #" + adId, e);
+        }
+    }
+
 }

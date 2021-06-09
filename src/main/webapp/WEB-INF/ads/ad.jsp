@@ -43,6 +43,7 @@
 </form>
 
 <form action="/ads/delete" method="post">
+    <input type="hidden" name="ad_id" value="${ad.id}">
     <button type="submit">Delete</button>
 </form>
 
