@@ -138,6 +138,16 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // get an ad by id
+    @Override
+    public Ad getAd(long id) {
+        try {
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
     // search ads by title
     @Override
     public List<Ad> search(String searchTitle) {

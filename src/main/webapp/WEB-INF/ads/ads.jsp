@@ -55,6 +55,7 @@
             <a href="<c:out value="ads/${ad.id}" />">
                 <div class="col-md-3">
                     <div class="card">
+                        <input type="hidden" name="id" value="${ad.id}">
                         <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
                         <div class="card-body">
                             <h5 class="card-title"><c:out value="${ad.title}" /></h5>

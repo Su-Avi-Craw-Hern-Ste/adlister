@@ -18,6 +18,8 @@ public class ViewAdServlet extends HttpServlet {
             response.sendRedirect("/ads/create");
             return;
         }
+
+        Long.parseLong(request.getParameter("id"));
         request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
     }
 }
