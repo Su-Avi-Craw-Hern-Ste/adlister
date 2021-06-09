@@ -21,6 +21,17 @@ function uploadImages() {
         maxFiles: 10,
         onUploadDone: (response) => {
             console.log(response);
+            let images = "";
+            for (let image of response.filesUploaded) {
+                images = images + image.url + ", ";
+            }
+            console.log(images)
+             $("#hidden").val(images);
+            $(".fa-check").toggleClass("hidden");
+        },
+        onFileUploadFailed: (response) => {
+            console.log(response);
+
         }
     }
     client.picker(options).open();

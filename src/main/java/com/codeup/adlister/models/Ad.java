@@ -1,7 +1,6 @@
 package com.codeup.adlister.models;
 
 
-import java.sql.Array;
 import java.util.List;
 
 public class Ad {
@@ -14,6 +13,14 @@ public class Ad {
     private List<String> categories;
     private List<String> images;
 
+    public Ad(long userId, String title, int price, String rarity, String description) {
+        this.userId = userId;
+        this.title = title;
+        this.price = price;
+        this.rarity = rarity;
+        this.description = description;
+    }
+
     public Ad(long userId, String title, int price, String rarity, String description, List<String> categories) {
         this.userId = userId;
         this.title = title;
@@ -21,6 +28,16 @@ public class Ad {
         this.rarity = rarity;
         this.description = description;
         this.categories = categories;
+    }
+
+    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
+        this.userId = userId;
+        this.title = title;
+        this.price = price;
+        this.rarity = rarity;
+        this.description = description;
+        this.categories = categories;
+        this.images = images;
     }
 
     public Ad(long id, long userId, String title, int price, String rarity, String description) {

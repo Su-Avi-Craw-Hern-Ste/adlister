@@ -11,6 +11,18 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Create profile" />
     </jsp:include>
+<<<<<<< HEAD
+    <style >
+        .hidden {
+            visibility: hidden;
+        }
+        /*.visible {*/
+        /*    visibility: visible;*/
+        /*}*/
+    </style>
+=======
+
+>>>>>>> 0642fba35f8a37e5a819f038f2480ae7df9ef6fa
 </head>
 <body>
 <jsp:include page="partials/afterLoginNav.jsp" />
@@ -43,8 +55,11 @@
             <label for="Mage">Mage</label>
         </div>
 
-        <label for="image">Upload image:</label>
-        <input type="file" id="image" name="image" accept="image/*">
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" id="images">Upload images</button>
+            <input type="hidden" name="image" id="hidden">
+            <div id="imageUploadHint"><i class="fa fa-check hidden" style="color:green"></i></div>
+        </div>
 
         <label for="phoneNumber"><b>Phone Number</b></label>
         <input type="tel" id="phoneNumber" placeholder="Enter Phone Number" name="phoneNumber"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
@@ -53,5 +68,10 @@
     </div>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../resources/js/keys.js"></script>
+<script src="../resources/js/adsUploadImages.js"></script>
 </body>
 </html>

@@ -31,6 +31,8 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        // convert the urls inside hidden input into a list of url
+        List<String> urls = new ArrayList<>(Arrays.asList(request.getParameter("images").split(", ")));
 
         Ad ad = new Ad(
             user.getId(),
@@ -38,12 +40,14 @@ public class CreateAdServlet extends HttpServlet {
             Integer.parseInt(request.getParameter("price")),
             request.getParameter("rarity"),
             request.getParameter("description"),
-            Arrays.asList(request.getParameterValues("categories"))
+            Arrays.asList(request.getParameterValues("categories")),
+            urls
         );
 
         // insert ad into ads table and categories to ad_category table in db
         long adId = DaoFactory.getAdsDao().insert(ad);
         DaoFactory.getCategoriesDao().insertCategories(ad, adId);
+        DaoFactory.getImagesDao().insertImages(adId, urls);
         request.getSession().setAttribute("ad", ad);
         response.sendRedirect("/ad");
     }

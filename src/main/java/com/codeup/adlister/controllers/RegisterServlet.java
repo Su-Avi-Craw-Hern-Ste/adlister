@@ -30,23 +30,28 @@ public class RegisterServlet extends HttpServlet {
             request.getSession().setAttribute("usernameError", usernameError);
         }
 
-        if ()
 
-        if (inputHasErrors) {
+        if (DaoFactory.getValidationDao().emailHasError(email)){
+            //Email error
+            String emailError = "input correct email format";
+            request.getSession().setAttribute("emailError", emailError);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        }
 
-
-
+        if (DaoFactory.getValidationDao().passwordHasError(password)) {
             // password error message
             String passwordError = "Password should be at least 8 digits long and must contain special characters";
             request.setAttribute("passwordError", passwordError);
-
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-            return;
         }
 
         if (DaoFactory.getValidationDao().isPasswordConfirmed(password,passwordConfirmation)) {
             // green check
+            String passwordMatchError = "Password does not match!";
+            request.setAttribute("confirmPass", passwordMatchError);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
+
 
         // create and save a new user
         User user = new User(username, email, password);

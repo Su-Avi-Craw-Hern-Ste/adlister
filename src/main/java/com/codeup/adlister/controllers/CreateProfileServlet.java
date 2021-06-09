@@ -19,6 +19,9 @@ public class CreateProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        String imageUrl = request.getParameter("image");
+        System.out.println(imageUrl);
+
         user.setPhoneNumber(request.getParameter("phoneNumber"));
         user.setImage(request.getParameter("image"));
         user.setRole(request.getParameter("role"));
