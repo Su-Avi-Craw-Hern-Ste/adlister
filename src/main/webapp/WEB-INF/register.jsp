@@ -12,6 +12,10 @@
         .visible {
             visibility: visible;
         }
+
+        p {
+            color: red;
+        }
     </style>
 
 </head>
