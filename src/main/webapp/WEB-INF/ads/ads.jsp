@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
     <style>
         body {
@@ -24,13 +24,14 @@
     </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
+<jsp:include page="/WEB-INF/partials/loginNavbar.jsp"/>
 
 <div class="container">
     <form action="/ads" method="post">
         <div class="input-group">
             <input id="search" type="text" class="form-control" name="search" placeholder="Search by title">
-            <span class="input-group-text"><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+            <span class="input-group-text"><button type="submit" class="btn btn-primary"><i
+                    class="fa fa-search"></i></button></span>
         </div>
     </form>
 
@@ -70,13 +71,14 @@
                     </ul>
                 </div>
             </a>
-
         </c:forEach>
     </div>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script></script>
 <script src="../js/ads.js"></script>

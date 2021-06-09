@@ -4,6 +4,20 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+
+    <style>
+        .hidden {
+            visibility: hidden;
+        }
+        .visible {
+            visibility: visible;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
     <jsp:include page="partials/loginNavbar.jsp" />
@@ -20,27 +34,36 @@
                 <input id="email" name="email" class="form-control" type="email">
                 <p>${emailError}</p>
             </div>
-
+<%--                first password--%>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
-                <p style="word: red">${passwordError}</p>
-            </div>
-
+                <div class="d-flex justify-content-between">
+                    <div class="password_repeat_label">
+                        <label class="font-weight-bold" for="password-repeat">Enter your password</label>
+                    </div>
+                    <p>${passwordError}</p>
+                </div>
+                <input type="password" name="password" class="form-control" id="password">
+<%--                    confirmed password--%>
             <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password">
+                <div class="d-flex justify-content-between">
+                    <div class="password_repeat_label">
+                        <label class="font-weight-bold" for="password-repeat">Confirm your password</label>
+                    </div>
+                    <div id="password-repeat-hint"><i class="fa fa-check hidden" style="color:green"></i></div>
+                </div>
+                <input type="password" name="confirm_password" class="form-control" id="password-repeat">
                 <p>${confirmPass}</p>
             </div>
-
-            <input type="submit" class="btn btn-primary btn-block">
+                <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
-
     <div id="canv" width="32" height="32">
 
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/js.js"></script>
+    <script src="./resources/js/formValidation.js"></script>
 </body>
 </html>

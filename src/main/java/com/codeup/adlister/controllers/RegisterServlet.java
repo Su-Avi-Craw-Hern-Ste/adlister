@@ -23,6 +23,9 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
+        System.out.println(password);
+        System.out.println(passwordConfirmation);
+
         // call methods in ValidationDao
         if (DaoFactory.getValidationDao().usernameHasError(username)) {
             //Username error message
@@ -45,15 +48,27 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
 
-        if (DaoFactory.getValidationDao().isPasswordConfirmed(password,passwordConfirmation)) {
-            // green check
+        boolean isPasswordConfirmed = password.equals(passwordConfirmation);
 
+        if (!isPasswordConfirmed) {
+            // green check
+            String passwordMatchError = "Password does not match!";
+            request.setAttribute("confirmPass", passwordMatchError);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
 
 
-        // create and save a new user
-        User user = new User(username, email, password);
-        DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+        //check if a username exist in the database
+        if (DaoFactory.getUsersDao().findByUsername(username) == null){
+            // create and save a new user
+            User user = new User(username, email, password);
+            DaoFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
+        }else{
+            String usernameError2 = "Username already exist, please enter another one!";
+            request.getSession().setAttribute("usernameError", usernameError2);
+            response.sendRedirect("/register");
+        }
+
     }
 }
