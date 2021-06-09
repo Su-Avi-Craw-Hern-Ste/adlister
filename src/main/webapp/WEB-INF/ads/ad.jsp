@@ -30,7 +30,7 @@
     </div>
     <p><strong>Description: </strong><c:out value="${ad.description}" /></p>
     <div>
-        <c:forEach var="image" items="${images}">
+        <c:forEach var="image" items="${ad.images}">
             <img src="${image}" alt="ad-image">
         </c:forEach>
     </div>

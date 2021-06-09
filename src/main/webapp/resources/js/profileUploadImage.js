@@ -18,11 +18,11 @@ const client = filestack.init(fileStackToken);
 function uploadImages() {
     const options = {
         accept: ["image/*"],
-        maxFiles: 10,
         onUploadDone: (response) => {
-            console.log(response);
-             $("#hidden").val(response.filesUploaded[0].url);
-            console.log($("#hidden").val());
+            console.log(response.filesUploaded[0].url);
+
+            $("#hidden").val(response.filesUploaded[0].url);
+            $(".fa-check").toggleClass("hidden");
         },
         onFileUploadFailed: (response) => {
             console.log(response);

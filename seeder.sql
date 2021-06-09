@@ -18,10 +18,24 @@ VALUES ('Armor'),
        ('Misc (anything not in above categories)');
 
 INSERT INTO images (image)
-VALUES ('dummy_url'),
-       ('dummy_url2'),
-       ('dummy_url3'),
-       ('dummy_url4');
+VALUES ('https://cdn.filestackcontent.com/S8ty7CAQ6yw5sCTgdRw0'),
+       ('https://cdn.filestackcontent.com/9xkUBQBiSQyqt8XJNcVT'),
+       ('https://cdn.filestackcontent.com/iZZnLrGwTfGMmT25MRa1'),
+       ('https://cdn.filestackcontent.com/5JEEGt7Tymi5IyVG2kfp'),
+       ('https://cdn.filestackcontent.com/VYeuuh84R6urAgpQYngA'),
+       ('https://cdn.filestackcontent.com/aXNEEZLxQLaFJoiCmBEJ'),
+       ('https://cdn.filestackcontent.com/xR6VUjYxQHqkqjTMM9x0'),
+       ('https://cdn.filestackcontent.com/oIwgUouT2ekFGsK6mSdW'),
+       ('https://cdn.filestackcontent.com/wzyW1GK6R5GDPsqQg7MI'),
+       ('https://cdn.filestackcontent.com/vfc3PoHFSbveQKM8KBhg'),
+       ('https://cdn.filestackcontent.com/P67kbRiwSAqHIvgAx8Ih'),
+       ('https://cdn.filestackcontent.com/5jglWsvR5iWKoI5R6y9I'),
+       ('https://cdn.filestackcontent.com/pGhTX6xhT76otcNxadxW'),
+       ('https://cdn.filestackcontent.com/UaPwVPkbRMiTJ7SDCJAf'),
+       ('https://cdn.filestackcontent.com/lYlp24skRFpY8eigTwTQ'),
+       ('https://cdn.filestackcontent.com/abkimx4TiKrKEPktXrqY'),
+       ('https://cdn.filestackcontent.com/jS9N75a1RHq7bkpY5ovX'),
+       ('https://cdn.filestackcontent.com/O4eQsurS8mDrn3R39LJN');
 
 INSERT INTO ads (user_id, title, price, rarity, description)
 VALUES
@@ -32,12 +46,16 @@ VALUES
 
 INSERT INTO ad_image (ad_id, image_id)
 VALUES (1, 1),
+       (1, 2),
        (2, 2),
        (3, 3),
-       (4, 4);
+       (4, 4),
+       (4, 5),
+       (4, 6);
 
 INSERT INTO ad_category (ad_id, category_id)
 VALUES (1, 1),
        (2, 2),
+       (2, 7),
        (3, 3),
        (4, 4);
