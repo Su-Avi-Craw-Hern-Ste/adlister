@@ -52,7 +52,7 @@
     <h1 id="main-header">Here Are all the ads!</h1>
     <div class="row">
         <c:forEach var="ad" items="${ads}">
-            <a href="<c:out value="ads/${ad.id}" />">
+            <a type="submit" href="<c:out value="ad?id=${ad.id}" />" role="button">
                 <div class="col-md-3">
                     <div class="card">
                         <input type="hidden" name="id" value="${ad.id}">
@@ -73,6 +73,7 @@
                     </div>
                 </div>
             </a>
+
         </c:forEach>
     </div>
 
