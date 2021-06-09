@@ -63,7 +63,7 @@ public class ValidationDao {
     }
 
 
-    public boolean isPasswordConfirmed(String password, String passwordConfirmation) {
-        return password.equals(passwordConfirmation);
-    }
+//    public boolean isPasswordConfirmed(String password, String passwordConfirmation) {
+//        return password.equals(passwordConfirmation);
+//    }
 }

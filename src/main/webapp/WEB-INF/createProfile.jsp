@@ -11,7 +11,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Create profile" />
     </jsp:include>
-<<<<<<< HEAD
+
     <style >
         .hidden {
             visibility: hidden;
@@ -20,9 +20,7 @@
         /*    visibility: visible;*/
         /*}*/
     </style>
-=======
 
->>>>>>> 0642fba35f8a37e5a819f038f2480ae7df9ef6fa
 </head>
 <body>
 <jsp:include page="partials/afterLoginNav.jsp" />

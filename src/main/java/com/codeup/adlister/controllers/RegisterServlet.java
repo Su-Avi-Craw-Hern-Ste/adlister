@@ -23,6 +23,9 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
+        System.out.println(password);
+        System.out.println(passwordConfirmation);
+
         // call methods in ValidationDao
         if (DaoFactory.getValidationDao().usernameHasError(username)) {
             //Username error message
@@ -45,7 +48,9 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
 
-        if (DaoFactory.getValidationDao().isPasswordConfirmed(password,passwordConfirmation)) {
+        boolean isPasswordConfirmed = password.equals(passwordConfirmation);
+
+        if (!isPasswordConfirmed) {
             // green check
             String passwordMatchError = "Password does not match!";
             request.setAttribute("confirmPass", passwordMatchError);

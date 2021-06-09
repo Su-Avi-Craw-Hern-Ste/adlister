@@ -38,7 +38,7 @@
                     </div>
                     <p>${passwordError}</p>
                 </div>
-                <input type="password" class="form-control" id="password">
+                <input type="password" name="password" class="form-control" id="password">
 <%--                    confirmed password--%>
             <div class="form-group">
                 <div class="d-flex justify-content-between">
@@ -47,7 +47,7 @@
                     </div>
                     <div id="password-repeat-hint"><i class="fa fa-check hidden" style="color:green"></i></div>
                 </div>
-                <input type="password" class="form-control" id="password-repeat">
+                <input type="password" name="confirm_password" class="form-control" id="password-repeat">
                 <p>${confirmPass}</p>
             </div>
                 <input type="submit" class="btn btn-primary btn-block">
