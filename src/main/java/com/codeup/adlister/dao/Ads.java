@@ -19,5 +19,5 @@ public interface Ads {
     // get a list of images from db
     List<String> retrieveImages(Ad ad);
     // get an ad from
-    Ad getAd(long id){};
+    Ad getAd(long id);
 }
