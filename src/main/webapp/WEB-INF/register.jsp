@@ -18,6 +18,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" name="email" class="form-control" type="email">
+                <p>${emailError}</p>
             </div>
 
             <div class="form-group">
