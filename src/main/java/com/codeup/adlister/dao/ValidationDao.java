@@ -46,7 +46,7 @@ public class ValidationDao {
 
 
     public boolean passwordHasError(String password) {
-        boolean inputHasError = password.isEmpty() || (password.length()<=8)
+        boolean inputHasError = password.isEmpty() || (password.length()<8)
                 || (!(password.contains("@") || password.contains("#")
                 || password.contains("!") || password.contains("~")
                 || password.contains("$") || password.contains("%")
