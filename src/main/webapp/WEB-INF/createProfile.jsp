@@ -11,6 +11,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Create profile" />
     </jsp:include>
+
 </head>
 <body>
 <jsp:include page="partials/afterLoginNav.jsp" />

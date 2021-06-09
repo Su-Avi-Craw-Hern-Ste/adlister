@@ -1,10 +1,10 @@
 "use strict";
 
-$('#password').on ('input', function (e) {
+$("#password-repeat").on ('input', function (e) {
     e.preventDefault();
     let i = 0;
     console.log(i);
-    if ($('#confirm_password').val() === $('#password').val()) {
+    if ($('#password').val() === $('#password-repeat').val()) {
         console.log(i++);
         $('.fa-check').toggleClass('hidden', 'visible');
     }
