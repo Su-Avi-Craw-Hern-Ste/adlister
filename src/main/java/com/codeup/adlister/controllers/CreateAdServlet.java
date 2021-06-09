@@ -40,7 +40,8 @@ public class CreateAdServlet extends HttpServlet {
             Integer.parseInt(request.getParameter("price")),
             request.getParameter("rarity"),
             request.getParameter("description"),
-            Arrays.asList(request.getParameterValues("categories"))
+            Arrays.asList(request.getParameterValues("categories")),
+            urls
         );
 
         // insert ad into ads table and categories to ad_category table in db

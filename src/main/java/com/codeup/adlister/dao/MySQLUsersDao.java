@@ -21,7 +21,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
+    // get the user info from db
     @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
@@ -31,23 +31,6 @@ public class MySQLUsersDao implements Users {
             return extractUser(stmt.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username", e);
-        }
-    }
-
-    @Override
-    public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
         }
     }
 
@@ -67,7 +50,25 @@ public class MySQLUsersDao implements Users {
         );
     }
 
+    // store use info into db
+    @Override
+    public Long insert(User user) {
+        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating new user", e);
+        }
+    }
 
+    // add profile info to user into db
     @Override
     public void addInfo(User user) {
         String query = "UPDATE users SET image = ?, role = ?, phone_number = ? WHERE id = ?";
