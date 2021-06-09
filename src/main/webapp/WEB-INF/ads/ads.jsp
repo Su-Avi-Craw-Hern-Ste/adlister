@@ -58,18 +58,19 @@
                         <input type="hidden" name="id" value="${ad.id}">
                         <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
                         <div class="card-body">
-                            <h5 class="card-title"><c:out value="${ad.title}" /></h5>
+                            <h5 class="card-title"><c:out value="${ad.title}"/></h5>
                         </div>
+
+                        <div class="card-text">
+                            <p><strong>Price: </strong><c:out value="${ad.price}"/></p>
+                            <p><strong>Rarity: </strong><c:out value="${ad.rarity}"/></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <c:forEach var="category" items="${ad.categories}">
+                                <li class="list-group-item"><c:out value="${category}"/></li>
+                            </c:forEach>
+                        </ul>
                     </div>
-                    <div class="card-text">
-                        <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
-                        <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <c:forEach var="category" items="${ad.categories}">
-                            <li class="list-group-item"><c:out value="${category}" /></li>
-                        </c:forEach>
-                    </ul>
                 </div>
             </a>
         </c:forEach>
