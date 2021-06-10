@@ -142,9 +142,15 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Ad getAd(long id) {
         try {
-
+            String sql = "SELECT * FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, id);
+            // run query in db and get the results
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error getting the ad.", e);
         }
     }
 
@@ -183,6 +189,19 @@ public class MySQLAdsDao implements Ads {
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error getting the ads searched.", e);
+        }
+    }
+
+    //Deleting an add from the card
+    public void delete(Long userId, Long adId) {
+        try {
+            String insertQuery = "DELETE FROM ads WHERE id = ? AND user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, adId);
+            stmt.setLong(2, userId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting product #" + adId, e);
         }
     }
 
