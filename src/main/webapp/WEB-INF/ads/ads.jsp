@@ -27,7 +27,7 @@
         .shop{
             position:fixed;
             height:100vh;
-            width:auto;
+            width:100%;
         }
 
         nav{
@@ -156,7 +156,6 @@
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/partials/adsNavbar.jsp"/>
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp"/>
 <img class="cat" src="<%=request.getContextPath()%>/img/local/NEKO.png" >
 <img class="shop" src="<%=request.getContextPath()%>/img/local/NBM.png" >
