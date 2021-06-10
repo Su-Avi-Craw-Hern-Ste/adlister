@@ -123,7 +123,7 @@ public class MySQLAdsDao implements Ads {
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
-            stmt.setInt(3, ad.getPrice());
+            stmt.setLong(3, ad.getPrice());
             stmt.setString(4, ad.getRarity());
             stmt.setString(5, ad.getDescription());
 
@@ -166,6 +166,7 @@ public class MySQLAdsDao implements Ads {
 
             // run query in MySQL
             ResultSet rs = stmt.executeQuery();
+            rs.next();
 
             // create ads list
             return createAdsFromResults(rs);
@@ -184,6 +185,7 @@ public class MySQLAdsDao implements Ads {
 
             // run query in MySQL
             ResultSet rs = stmt.executeQuery();
+            rs.next();
 
             // create ads list
             return createAdsFromResults(rs);
@@ -193,7 +195,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     //Deleting an add from the card
-    public void delete(Long userId, Long adId) {
+    public void delete(long userId, long adId) {
         try {
             String insertQuery = "DELETE FROM ads WHERE id = ? AND user_id = ?";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -202,6 +204,60 @@ public class MySQLAdsDao implements Ads {
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting product #" + adId, e);
+        }
+    }
+
+    @Override
+    public Ad edit(long userId, long adId, String title, long price, String rarity, String description, List<String> categories) {
+        try {
+            // set up sql for MySQL to update data in ads
+            String sql = "UPDATE ads SET title = ?, price = ?, rarity = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, title);
+            stmt.setLong(2, price);
+            stmt.setString(3, rarity);
+            stmt.setString(4, description);
+            stmt.setLong(5, adId);
+
+            // run sql in MySQL to update ads table
+            stmt.executeUpdate();
+
+            // update title, price, rarity and description
+            Ad ad = new Ad (
+                    adId,
+                    userId,
+                    title,
+                    price,
+                    rarity,
+                    description
+                    );
+
+            // update categories
+            ad.setCategories(editCategories(adId, categories));
+
+            return ad;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating ad #" + adId, e);
+        }
+    }
+
+    // update category_id in ad_category in db
+    public List<String> editCategories(long adId, List<String> categories) {
+        try {
+            List<String> newCategories = new ArrayList<>();
+            for (String category : categories) {
+                String query = "UPDATE ad_category SET category_id = (SELECT c.id FROM categories c WHERE c.category = ?) WHERE ad_id = ?";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setString(1, category);
+                statement.setLong(2, adId);
+                int number = statement.executeUpdate();
+                if (number == 1) {
+                    newCategories.add(category);
+                }
+            }
+            return newCategories;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating categories on ad #" + adId, e);
         }
     }
 

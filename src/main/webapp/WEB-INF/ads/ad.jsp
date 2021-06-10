@@ -53,7 +53,8 @@
     </div>
 </div>
 
-<form action="/ads/edit" method="post" class="form hidden">
+<form action="/ad/edit" method="get" class="form hidden">
+    <input type="hidden" name="ad_id" value="${ad.id}">
     <button type="submit">Edit</button>
 </form>
 

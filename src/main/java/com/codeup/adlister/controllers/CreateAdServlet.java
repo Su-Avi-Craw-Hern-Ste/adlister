@@ -37,7 +37,7 @@ public class CreateAdServlet extends HttpServlet {
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
-            Integer.parseInt(request.getParameter("price")),
+            Long.parseLong(request.getParameter("price")),
             request.getParameter("rarity"),
             request.getParameter("description"),
             Arrays.asList(request.getParameterValues("categories")),
