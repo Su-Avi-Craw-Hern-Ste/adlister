@@ -22,6 +22,10 @@ public class EditProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
+        User user = (User) request.getSession().getAttribute("user");
+        System.out.println(user);
+        request.setAttribute("user", user);
         request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
     }
 

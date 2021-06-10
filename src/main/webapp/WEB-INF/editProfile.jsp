@@ -21,15 +21,15 @@
     <form action="/profile/edit" method="post">
         <div class="form-group">
             <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text">
+            <input id="username" name="username" class="form-control" type="text" value="<c:out value="${user.username}" />">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" name="email" class="form-control" type="text">
+            <input id="email" name="email" class="form-control" type="text" value="<c:out value="${user.email}" />">
         </div>
         <div class="form-group">
             <label for="phoneNumber">Phone number</label>
-            <input id="phoneNumber" name="phoneNumber" class="form-control" type="text">
+            <input id="phoneNumber" name="phoneNumber" class="form-control" type="text" value="<c:out value="${user.phoneNumber}" />">
         </div>
     </form>
 </div>
