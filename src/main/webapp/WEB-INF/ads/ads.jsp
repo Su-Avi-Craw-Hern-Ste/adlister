@@ -26,7 +26,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp"/>
 
-<div class="container" style="margin-top: 1em;">
+<div class="container">
     <form action="/ads" method="post">
         <div class="input-group">
             <input id="search" type="text" class="form-control" name="search" placeholder="Search by title">
@@ -70,6 +70,11 @@
                                 <li class="list-group-item"><c:out value="${category}"/></li>
                             </c:forEach>
                         </ul>
+                        <div class="card-text">
+                            <a href="#" class="cart position-relative d-inline-flex">
+                                <i class="fas fa fa-shopping-cart fa-lg"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </a>
