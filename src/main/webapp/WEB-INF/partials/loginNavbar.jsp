@@ -4,8 +4,11 @@
         <div class="navbar-header">
         </div>
         <ul class="nav navbar-nav navbar-right" style="display: flex; flex-direction: row">
+            <li><a href="/" style="padding: 1em; margin: 0 1em; color: white; text-decoration: none">FANTASYLISTER</a></li>
+            <li><a href="/ads" style="padding: 1em; margin: 0 1em; color: white; text-decoration: none">Ads</a></li>
             <li><a href="/login" style="padding: 1em; margin: 0 1em; color: white; text-decoration: none">Login</a></li>
             <li><a href="/register" style="padding: 1em; margin: 0 1em; color: white; text-decoration: none">Register</a></li>
+
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
