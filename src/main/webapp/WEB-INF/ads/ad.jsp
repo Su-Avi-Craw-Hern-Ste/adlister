@@ -14,11 +14,18 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/afterLoginNav.jsp" />
+<jsp:include page="/WEB-INF/partials/loginNavbar.jsp" />
 
 <div class="container">
     <h1><c:out value="${ad.title}" /></h1>
     <p><c:out value="${user.username}" /></p>
+    <div>
+        <a href="#">
+            <i class="fas fa fa-shopping-cart fa-lg"></i>
+        </a>
+        <a href="${pageContext.request.contextPath}/ads">Back to shop</a>
+    </div>
+
     <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
     <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
     <div>
@@ -37,7 +44,6 @@
     </div>
 </div>
 
-
 <form action="/ads/edit" method="post">
     <button type="submit">Edit</button>
 </form>
@@ -46,7 +52,6 @@
     <input type="hidden" name="ad_id" value="${ad.id}">
     <button type="submit">Delete</button>
 </form>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

@@ -49,6 +49,6 @@ public class CreateAdServlet extends HttpServlet {
         DaoFactory.getCategoriesDao().insertCategories(ad, adId);
         DaoFactory.getImagesDao().insertImages(adId, urls);
         request.getSession().setAttribute("ad", ad);
-        response.sendRedirect("/ad");
+        response.sendRedirect("/ad/created");
     }
 }
