@@ -16,11 +16,15 @@
         p {
             color: red;
         }
+
+        div .container  {
+            margin-top: 10rem;
+        }
     </style>
 
 </head>
-<body>
-    <jsp:include page="partials/loginNavbar.jsp" />
+<body class="body">
+    <jsp:include page="partials/navbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
@@ -57,13 +61,12 @@
                 <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
-    <div id="canv" width="32" height="32">
-
-    </div>
+<%--    <canvas id="canv" width="32" height="32">--%>
+<%--    </canvas>--%>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./js/js.js"></script>
+    <script src="../resources/js/js.js"></script>
     <script src="./resources/js/formValidation.js"></script>
 </body>
 </html>
