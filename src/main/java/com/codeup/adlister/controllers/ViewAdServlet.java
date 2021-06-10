@@ -16,8 +16,11 @@ public class ViewAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
         Ad ad = DaoFactory.getAdsDao().getAd(id);
+
+        // get the username who has created the ad
+        String username = DaoFactory.getUsersDao().getUsernameByAdId(id);
         request.setAttribute("ad", ad);
-        System.out.println(ad.getTitle());
+        request.setAttribute("username", username);
         request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
     }
 }

@@ -85,4 +85,19 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public String getUsernameByAdId(long adId) {
+        try {
+            String sql = "SELECT username FROM users JOIN ads ON users.id = ads.user_id WHERE ads.id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, adId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            System.out.println(rs.getString("username"));
+            return rs.getString("username");
+        }  catch (SQLException e) {
+            throw new RuntimeException("Error getting user info", e);
+        }
+    }
+
 }
