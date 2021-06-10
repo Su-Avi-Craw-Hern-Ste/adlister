@@ -26,7 +26,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/loginNavbar.jsp"/>
 
-<div class="container">
+<div class="container" style="margin-top: 1em;">
     <form action="/ads" method="post">
         <div class="input-group">
             <input id="search" type="text" class="form-control" name="search" placeholder="Search by title">
