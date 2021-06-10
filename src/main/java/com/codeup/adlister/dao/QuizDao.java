@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class QuizDao {
-    private boolean isAnswered = false;
+    private boolean isComplete = false;
     private Connection connection;
 
     public QuizDao(Config config) {
@@ -23,14 +23,5 @@ public class QuizDao {
         }
     }
 
-    //TODO: check for questions answered, if questions are answered add money to user's total money
     //TODO: style quiz page
-    //TODO: make sure money attribute is properly updated
-
-//    public boolean questionAnswered(String question) {
-//        if (question.length() == 0) {
-//
-//        }
-//    }
-
 }

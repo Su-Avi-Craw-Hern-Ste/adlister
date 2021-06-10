@@ -13,12 +13,12 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="partials/loginNavbar.jsp" />
+    <jsp:include page="partials/afterLoginNav.jsp" />
     <div class="container">
         <h1>Greetings, ${sessionScope.user.username}!</h1>
         <h3>We'd like to learn a little about you before you begin using FantasyLister&#8482;. For your time, you'll earn StarBucks!</h3>
         <hr>
-
+        <input type="hidden" name="quiz-complete" value="false">
         <form action="/quiz" method="post">
             <div class="form-group">
                 <p><em><strong>Have you been on an adventure before?</strong></em></p>
@@ -88,6 +88,8 @@
                     </label>
                 </div>
                 <hr>
+                <input type="hidden" name="user-money" value="${sessionScope.user.money}">
+                <input type="hidden" name="quiz-complete" value="true">
                 <input type="submit" class="btn btn-primary btn-block">
             </div>
         </form>
