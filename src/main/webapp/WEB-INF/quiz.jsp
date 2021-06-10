@@ -16,7 +16,8 @@
     <jsp:include page="partials/afterLoginNav.jsp" />
     <div class="container">
         <h1>Greetings, ${sessionScope.user.username}!</h1>
-        <h3>We'd like to learn a little about you before you begin using FantasyLister&#8482;. For your time, you'll earn StarBucks!</h3>
+        <h3>We'd like to learn a little about you before you begin using FantasyLister&#8482;. For your time, you'll earn 2000 StarBucks!</h3>
+        <h3>You may only take this quiz once!</h3>
         <hr>
         <input type="hidden" name="quiz-complete" value="false">
         <form action="/quiz" method="post">
