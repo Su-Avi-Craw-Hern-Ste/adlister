@@ -212,7 +212,8 @@
                                 <i class="fas fa fa-shopping-cart fa-lg"></i>
                             </a>
                         </div>
-
+                    </div>
+                </div>
             <div class="holder">
                 <div class="scroll">
                     <div class="row row-cols-6 row-cols-sm-2 row-cols-md-3 g-3">
@@ -241,8 +242,9 @@
                     </div>
                 </div>
             </div>
+        </c:forEach>
+    </div>
 </div>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
