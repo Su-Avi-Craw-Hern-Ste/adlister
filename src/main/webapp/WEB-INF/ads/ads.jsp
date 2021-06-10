@@ -70,6 +70,11 @@
                                 <li class="list-group-item"><c:out value="${category}"/></li>
                             </c:forEach>
                         </ul>
+                        <div class="card-text">
+                            <a href="#" class="cart position-relative d-inline-flex">
+                                <i class="fas fa fa-shopping-cart fa-lg"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </a>
