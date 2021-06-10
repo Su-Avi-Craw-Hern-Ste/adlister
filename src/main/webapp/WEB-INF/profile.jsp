@@ -49,24 +49,27 @@
         <h2>Here are the ads <c:out value="${sessionScope.user.username}"/> has posted:</h2>
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <c:forEach var="ad" items="${ads}">
-                <div class="col">
-                    <div class="card">
-                        <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
-                        <div class="card-body">
-                            <h5 class="card-title"><c:out value="${ad.title}" /></h5>
-                            <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
-                            <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
-                            <div>
-                                <strong>Categories: </strong>
-                                <ul>
-                                    <c:forEach var="category" items="${ad.categories}">
-                                        <li class="list-group-item"><c:out value="${category}" /></li>
-                                    </c:forEach>
-                                </ul>
+                <a type="submit" href="<c:out value="ad?id=${ad.id}" />" role="button">
+                    <div class="col">
+                        <div class="card">
+                            <img src="<c:out value="${ad.images[0]}" />" class="card-img-top" alt="ad-image">
+                            <div class="card-body">
+                                <h5 class="card-title"><c:out value="${ad.title}" /></h5>
+                                <p><strong>Price: </strong><c:out value="${ad.price}" /></p>
+                                <p><strong>Rarity: </strong><c:out value="${ad.rarity}" /></p>
+                                <div>
+                                    <strong>Categories: </strong>
+                                    <ul>
+                                        <c:forEach var="category" items="${ad.categories}">
+                                            <li class="list-group-item"><c:out value="${category}" /></li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
+
             </c:forEach>
         </div>
 
@@ -76,12 +79,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(".card").click((e) => {
-            e.preventDefault();
-            // go to /ad/adId page to view the details of the clicked ad
-
-        })
-    </script>
 </body>
 </html>

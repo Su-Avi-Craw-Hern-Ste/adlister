@@ -18,4 +18,10 @@ public interface Ads {
     List<Ad> filter(String category);
     // get a list of images from db
     List<String> retrieveImages(Ad ad);
+    // get an ad from
+    Ad getAd(long id);
+    // delete an ad from the database
+    void delete(long userId, long adId);
+    // edit an ad and update the data in db
+    Ad edit(long userId, long adId, String title, long price, String rarity, String description, List<String> categories);
 }

@@ -86,17 +86,33 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public void editInfo(User user){
+    public void editInfo(User user) {
         String query = "UPDATE users SET username = ?, email = ?, phone_number = ? WHERE id = ?";
-        try{
+        try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPhoneNumber());
             stmt.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating profile information", e);
+
         }
+
     }
 
+    @Override
+    public String getUsernameByAdId(long adId) {
+        try {
+            String sql = "SELECT username FROM users JOIN ads ON users.id = ads.user_id WHERE ads.id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, adId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            System.out.println(rs.getString("username"));
+            return rs.getString("username");
+        }  catch (SQLException e) {
+            throw new RuntimeException("Error getting user info", e);
+        }
+    }
 }
