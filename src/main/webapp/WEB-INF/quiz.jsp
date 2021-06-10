@@ -8,12 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Create profile" />
-    </jsp:include>
+    <jsp:include page="partials/afterLoginNav.jsp" />
 </head>
 <body>
-    <jsp:include page="partials/afterLoginNav.jsp" />
     <div class="container">
         <h1>Greetings, ${sessionScope.user.username}!</h1>
         <h3>We'd like to learn a little about you before you begin using FantasyLister&#8482;. For your time, you'll earn 2000 StarBucks!</h3>
