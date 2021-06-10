@@ -8,4 +8,5 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     void addInfo(User user);
+    void editInfo(User user);
 }

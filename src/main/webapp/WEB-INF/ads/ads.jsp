@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/loginNavbar.jsp"/>
+<jsp:include page="/WEB-INF/partials/adsNavbar.jsp"/>
 
 <div class="container">
     <form action="/ads" method="post">
