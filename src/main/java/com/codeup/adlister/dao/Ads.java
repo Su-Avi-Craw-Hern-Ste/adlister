@@ -20,6 +20,8 @@ public interface Ads {
     List<String> retrieveImages(Ad ad);
     // get an ad from
     Ad getAd(long id);
-    //delete an ads from the database
-    void delete(Long userId, Long adId);
+    // delete an ad from the database
+    void delete(long userId, long adId);
+    // edit an ad and update the data in db
+    Ad edit(long userId, long adId, String title, long price, String rarity, String description, List<String> categories);
 }

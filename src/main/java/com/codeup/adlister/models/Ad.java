@@ -7,13 +7,13 @@ public class Ad {
     private long id;
     private long userId;
     private String title;
-    private int price;
+    private long price;
     private String rarity;
     private String description;
     private List<String> categories;
     private List<String> images;
 
-    public Ad(long userId, String title, int price, String rarity, String description) {
+    public Ad(long userId, String title, long price, String rarity, String description) {
         this.userId = userId;
         this.title = title;
         this.price = price;
@@ -21,7 +21,7 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories) {
+    public Ad(long userId, String title, long price, String rarity, String description, List<String> categories) {
         this.userId = userId;
         this.title = title;
         this.price = price;
@@ -30,7 +30,7 @@ public class Ad {
         this.categories = categories;
     }
 
-    public Ad(long userId, String title, int price, String rarity, String description, List<String> categories, List<String> images) {
+    public Ad(long userId, String title, long price, String rarity, String description, List<String> categories, List<String> images) {
         this.userId = userId;
         this.title = title;
         this.price = price;
@@ -40,7 +40,7 @@ public class Ad {
         this.images = images;
     }
 
-    public Ad(long id, long userId, String title, int price, String rarity, String description) {
+    public Ad(long id, long userId, String title, long price, String rarity, String description) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -73,9 +73,9 @@ public class Ad {
         this.title = title;
     }
 
-    public int getPrice() { return price; }
+    public long getPrice() { return price; }
 
-    public void setPrice(int price) { this.price = price; }
+    public void setPrice(long price) { this.price = price; }
 
     public String getRarity() { return rarity; }
 
