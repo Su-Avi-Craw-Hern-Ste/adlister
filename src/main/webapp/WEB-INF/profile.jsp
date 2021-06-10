@@ -45,6 +45,7 @@
 
         <a href="/ads/create" type="button" class="btn btn-primary">Create Ad</a>
         <a href="/profile/edit" type="button" class="btn btn-primary">Edit Profile</a>
+        <a href="/quiz" type="button" class="btn btn-primary">Take a quiz, earn StarBucks!</a>
 
         <h2>Here are the ads <c:out value="${sessionScope.user.username}"/> has posted:</h2>
         <div class="row row-cols-1 row-cols-md-2 g-4">
