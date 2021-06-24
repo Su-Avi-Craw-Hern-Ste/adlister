@@ -31,10 +31,4 @@ function uploadImages() {
     }
     client.picker(options).open();
 
-<<<<<<< HEAD:src/main/webapp/resources/js/profileUploadImage.js
 }
-=======
-}
-
-
->>>>>>> 0642fba35f8a37e5a819f038f2480ae7df9ef6fa:src/main/webapp/resources/js/ads.js
